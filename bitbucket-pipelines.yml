@@ -13,6 +13,7 @@ pipelines:
         - step:
             script:
               - pip install awscli
+              - npm install
               - npm run build
               - aws s3 sync ./dist s3://app.weathercheck.co
               - aws cloudfront create-invalidation --distribution-id ESGH0GKSZA78E --paths '/*
