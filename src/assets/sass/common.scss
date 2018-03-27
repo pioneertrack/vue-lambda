@@ -1,0 +1,65 @@
+@mixin card-mixin(){
+  background:#fff;
+  border-radius:5px;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1), 0 0 0 0 rgba(0,0,0,.1), 0 1px 1px -1px rgba(0,0,0,.1);
+}
+
+@mixin row-color-indicator($color){
+  background-color: $color;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  bottom:0;
+  width: 5px;
+}
+
+@mixin common-bottom-border(){
+  border-bottom: 1px solid #dee2e6;
+}
+
+@mixin header-font(){
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  line-height:24px;
+  color: #717171;
+}
+
+
+// comments are left in to maintain list of bootstrap 3 imports.
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+//@import "~bootstrap/scss/root";
+//@import "~bootstrap/scss/reboot";
+//@import "~bootstrap/scss/type";
+//@import "~bootstrap/scss/images";
+//@import "~bootstrap/scss/code";
+//@import "~bootstrap/scss/grid";
+//@import "~bootstrap/scss/tables";
+//@import "~bootstrap/scss/forms";
+//@import "~bootstrap/scss/buttons";
+//@import "~bootstrap/scss/transitions";
+//@import "~bootstrap/scss/dropdown";
+//@import "~bootstrap/scss/button-group";
+//@import "~bootstrap/scss/input-group";
+//@import "~bootstrap/scss/custom-forms";
+//@import "~bootstrap/scss/nav";
+//@import "~bootstrap/scss/navbar";
+//@import "~bootstrap/scss/card";
+//@import "~bootstrap/scss/breadcrumb";
+//@import "~bootstrap/scss/pagination";
+//@import "~bootstrap/scss/badge";
+//@import "~bootstrap/scss/jumbotron";
+//@import "~bootstrap/scss/alert";
+//@import "~bootstrap/scss/progress";
+//@import "~bootstrap/scss/media";
+//@import "~bootstrap/scss/list-group";
+//@import "~bootstrap/scss/close";
+//@import "~bootstrap/scss/modal";
+//@import "~bootstrap/scss/tooltip";
+//@import "~bootstrap/scss/popover";
+//@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/utilities";
+//@import "~bootstrap/scss/print";

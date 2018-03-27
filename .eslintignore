@@ -1,0 +1,5 @@
+/build/
+/config/
+/dist/
+/src/assets/sass/vendor
+/*.js

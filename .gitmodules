@@ -1,0 +1,21 @@
+[submodule "functions/team"]
+	path = functions/team
+	url = git@bitbucket.org:weathercheckco/team.git
+[submodule "functions/weather-news"]
+	path = functions/weather-news
+	url = git@bitbucket.org:weathercheckco/weather-news.git
+[submodule "functions/onboarding-import"]
+	path = functions/onboarding-import
+	url = git@bitbucket.org:weathercheckco/onboarding-import.git
+[submodule "functions/google-maps"]
+	path = functions/google-maps
+	url = git@bitbucket.org:weathercheckco/google-maps.git
+[submodule "functions/weather-events"]
+	path = functions/weather-events
+	url = git@bitbucket.org:weathercheckco/weather-events.git
+[submodule "functions/properties"]
+	path = functions/properties
+	url = git@bitbucket.org:weathercheckco/properties.git
+[submodule "functions/email-signup"]
+	path = functions/email-signup
+	url = git@bitbucket.org:weathercheckco/email-signup.git
