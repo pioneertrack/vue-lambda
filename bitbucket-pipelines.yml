@@ -1,4 +1,4 @@
-image: dseg/node7-python2-pip-yarn-alpine35
+image: nikolaik/python-nodejs
 pipelines:
     branches:
       staging:
