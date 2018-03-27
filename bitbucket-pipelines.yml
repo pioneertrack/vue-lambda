@@ -6,7 +6,7 @@ pipelines:
             script:
               - pip install awscli
               - npm install
-              - npm run build
+              - npm run build-staging
               - aws s3 sync ./dist s3://staging.weathercheck.co
               - aws cloudfront create-invalidation --distribution-id EH2GJZBZHJ3V0 --paths '/*'
       master:
