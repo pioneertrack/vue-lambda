@@ -11,8 +11,8 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js",
-    "build-staging": "node build/build-staging.js",
+    "build:production": "node build/build.js",
+    "build:staging": "node build/build-staging.js",
     "functions:init": "git submodule init && git submodule update --recursive --remote && npx recursive-install --rootDir=functions --skip-root && npm run functions:build",
     "functions:build": "node build/functions.js",
     "functions:debug": "cd functions && node --inspect node_modules/serverless/bin/serverless offline start"
