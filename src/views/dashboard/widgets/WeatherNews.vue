@@ -20,7 +20,7 @@
                         </p>
                     </div>
                     <div>
-                        <a :href="n.link">Read More...</a>
+                        <a target="_blank" :href="n.link">Read More...</a>
                     </div>
                 </div>
             </div>
