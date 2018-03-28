@@ -8,6 +8,8 @@ import VueAnalytics from 'vue-ua'
 import VueGtm from 'vue-gtm'
 import VModal from 'vue-js-modal'
 import axios from 'axios'
+import Raven from 'raven-js'
+import RavenVue from 'raven-js/plugins/vue'
 
 function isDevelopment () {
   let isDevelopment = false
@@ -43,6 +45,11 @@ router.beforeEach((to, from, next) => {
     })
   }
 })
+
+Raven
+  .config(process.env.SENTRY_URL)
+  .addPlugin(RavenVue, Vue)
+  .install()
 
 Vue.config.productionTip = false
 Vue.use(router)

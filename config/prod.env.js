@@ -8,4 +8,5 @@ module.exports = {
   COGNITO_CLIENTID: '"rapb4b90d5tfjst0f9i56569d"',
   COGNITO_IDENTITYPOOLID: '"us-east-2:97392044-5732-43f3-aac1-348a9574cb40"',
   SS_AUTHID:'"6413738716745430"',
+  SENTRY_URL:'"https://c6716aef4210458b987ad55134538c2c@sentry.io/736144"',
 }

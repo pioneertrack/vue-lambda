@@ -11,4 +11,5 @@ module.exports = merge(prodEnv, {
   COGNITO_IDENTITYPOOLID: '"us-east-1:247ccaf8-116f-4bba-b77c-cbdafa451ac5"',
   API_ENDPOINT:'"http://localhost:3000"',
   SS_AUTHID:'"6413736506203855"',
+  SENTRY_URL:'"https://c6716aef4210458b987ad55134538c2c@sentry.io/736144"',
 })
