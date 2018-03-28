@@ -17,7 +17,7 @@ const baseRoutes = [
     title: 'Address',
     props: true,
     meta: {
-      isUnguarded: false,
+      isUnguarded: true,
     },
   },
 ]
