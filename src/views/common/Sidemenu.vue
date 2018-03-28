@@ -64,7 +64,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="https://weathercheck.co/terms/" class="fa fa-fw fa-btn fa-sign-out" title="Terms of Use">Terms of Use</a>
+                    <a target="_blank" href="https://weathercheck.co/terms/" class="fa fa-fw fa-btn fa-sign-out" title="Terms of Use">Terms of Use</a>
                     <router-link to="/logout" class="fa fa-fw fa-btn fa-sign-out" title="Logout">Logout</router-link>
                 </li>
             </ul>
