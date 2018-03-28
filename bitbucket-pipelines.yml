@@ -16,4 +16,4 @@ pipelines:
               - yarn install
               - yarn run build:production
               - aws s3 sync ./dist s3://app.weathercheck.co
-              - aws cloudfront create-invalidation --distribution-id ESGH0GKSZA78E --paths '/*
+              - aws cloudfront create-invalidation --distribution-id ESGH0GKSZA78E --paths '/*'
