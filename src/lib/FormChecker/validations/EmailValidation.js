@@ -1,33 +1,38 @@
-/* eslint-disable no-unused-vars */
+'use strict'
 import Validation from './Validation'
 import Field from '../Field'
 
 class EmailValidation extends Validation {
   constructor () {
-    super({ name: 'email', })
+    super({ id: 'email', name: 'Email Address Validation', })
   }
 
-  execute (field) {
+  execute (field, parameters) {
     if (field instanceof Field) {
+
       let atPos = field.value.indexOf('@')
+
       if (atPos === -1) {
-        field.addError(`Missing @ sign in ${field.name}`)
+        field.addError(`Incomplete email address.`)
       } else {
+
         let user = field.value.substr(0, atPos)
         if (!user) {
-          field.addError(`Missing user id in ${field.name}`)
+          field.addError(`Email address is missing a user name.`)
         }
 
         let domain = field.value.substr(atPos + 1)
         if (!domain) {
-          field.addError(`${field.name} is missing domain name`)
+          field.addError(`Email address is missing a domain name.`)
         }
 
-        let tld
         if (domain.indexOf('.') === -1) {
-          field.addError(`Missing period in ${field.name} domain name.`)
+          field.addError(`Invalid domain in email, missing the period?.`)
         } else {
-          tld = domain.substr(domain.lastIndexOf('.') + 1)
+          let tld = domain.substr(domain.indexOf('.') + 1)
+          if (!tld) {
+            field.addError(`Email address is missing a top level domain (ex .com).`)
+          }
         }
       }
     }

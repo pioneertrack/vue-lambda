@@ -66,8 +66,12 @@ class FieldCollection {
     return hasField
   }
 
-  validate () {
+  validate (mode) {
     for (let f = 0; f < this._fields.length; f++) {
+      if (mode === 'force') {
+        // touch all fields to force validation
+        this._fields[f].touch()
+      }
       this._fields[f].validate()
     }
   }
