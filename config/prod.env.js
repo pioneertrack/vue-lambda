@@ -2,7 +2,7 @@
 module.exports = {
   NODE_ENV: '"production"',
   API_ENDPOINT:'"https://api.app.weathercheck.co"',
-  DOMAIN:'"api.app.weathercheck.co"',
+  DOMAIN:'"app.weathercheck.co"',
   COGNITO_REGION: '"us-east-2"',
   COGNITO_USERPOOLID: '"us-east-2_ZncmElBRt"',
   COGNITO_CLIENTID: '"rapb4b90d5tfjst0f9i56569d"',
