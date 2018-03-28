@@ -9,6 +9,8 @@ import IntegerValidation from './validations/IntegerValidation'
 import RequiredValidation from './validations/RequiredValidation'
 import EmailValidation from './validations/EmailValidation'
 import PhoneValidation from './validations/PhoneValidation'
+import ConfirmationValidation from './validations/ConfirmationValidation'
+import PasswordValidation from './validations/PasswordValidation'
 
 class FormChecker {
   constructor (formData) {
@@ -20,11 +22,15 @@ class FormChecker {
     let requiredValidation = new RequiredValidation()
     let emailValidation = new EmailValidation()
     let phoneValidation = new PhoneValidation()
+    let confirmationValidation = new ConfirmationValidation()
+    let passwordValidation = new PasswordValidation()
 
     this._validationFactory.addValidation(integerValidation)
     this._validationFactory.addValidation(requiredValidation)
     this._validationFactory.addValidation(emailValidation)
     this._validationFactory.addValidation(phoneValidation)
+    this._validationFactory.addValidation(confirmationValidation)
+    this._validationFactory.addValidation(passwordValidation)
 
     this._form = new Form({
       name: formData.name,
@@ -37,11 +43,12 @@ class FormChecker {
         id: fieldId,
         name: formData.fields[fieldId].name,
         value: formData.fields[fieldId].value,
+        form: this._form,
       })
 
       // Create validators and add to the field
-      for (let validationName in formData.fields[fieldId].validations) {
-        field.addValidation(this._validationFactory.getValidation(validationName))
+      for (let validationId in formData.fields[fieldId].validations) {
+        field.addValidation(this._validationFactory.getValidation(validationId), formData.fields[fieldId].validations[validationId])
       }
 
       // Create formatters and add to the field

@@ -8,16 +8,16 @@ class ValidationFactory {
 
   addValidation (validation) {
     if (validation instanceof Validation) {
-      this._validations[validation.name] = validation
+      this._validations[validation.id] = validation
     }
   }
-  getValidation (validationName) {
-    return this._validations[validationName]
+  getValidation (validationId) {
+    return this._validations[validationId]
   }
 
-  hasValidation (validationName) {
+  hasValidation (validationId) {
     let hasValidation = false
-    if (this._validations[validationName]) {
+    if (this._validations[validationId]) {
       hasValidation = true
     }
     return hasValidation

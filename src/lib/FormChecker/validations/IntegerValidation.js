@@ -4,10 +4,10 @@ import Field from '../Field'
 
 class IntegerValidation extends Validation {
   constructor () {
-    super({ name: 'integer', })
+    super({ id: 'integer', name: 'Ingeter Validation', })
   }
 
-  execute (field) {
+  execute (field, parameters) {
     if (field instanceof Field) {
       let re = new RegExp(/^-?[0-9]*$/)
       if (!re.test(field.value)) {

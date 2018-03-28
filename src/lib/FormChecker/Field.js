@@ -2,15 +2,17 @@
 import Validation from './validations/Validation'
 
 class Field {
-  constructor ({ id, name, value, defaultValue, prompt, }) {
+  constructor ({ id, name, value, defaultValue, prompt, form, }) {
     this._id = id
     this._name = name
     this._value = value
     this._validations = []
+    this._validationParameters = {}
     this._formats = {}
     this._errors = []
     this._isTouched = false
     this._isDirty = false
+    this._form = form
   }
 
   get id () {
@@ -29,6 +31,10 @@ class Field {
     this._value = value
     this._isDirty = true
     this._isTouched = true
+  }
+
+  get form () {
+    return this._form
   }
 
   get errors () {
@@ -86,13 +92,14 @@ class Field {
   validate () {
     this._errors = []
     for (let v = 0; v < this._validations.length; v++) {
-      this._validations[v].execute(this)
+      this._validations[v].execute(this, this._validationParameters[this._validations[v].id])
     }
   }
 
-  addValidation (validation) {
+  addValidation (validation, parameters) {
     if (validation instanceof Validation) {
       this._validations.push(validation)
+      this._validationParameters[validation.id] = parameters
     }
   }
 

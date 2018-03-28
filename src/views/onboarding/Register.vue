@@ -27,7 +27,8 @@
                     <div :class="['wc-form__block', {'wc-form__block--err': registrationForm.accountType.hasErrors()}]">
                         <label for="name">I am a...</label>
                         <div>
-                            <select name="account_type" class="wc-form__input" v-model="registrationForm.accountType.value" @blur="registrationForm.accountType.validate()">
+                            <select name="account_type" class="wc-form__input" v-model="registrationForm.accountType.value" @change="registrationForm.accountType.validate()"
+                              @blur="registrationForm.accountType.validate()">
                                 <option selected value="" disabled hidden>Please select...</option>
                                 <option value="reit">REIT</option>
                                 <option value="property_manager">Property Manager</option>
@@ -56,11 +57,11 @@
                       <p class="wc-form__err-msg">{{ registrationForm.password.firstError }}</p>
                     </div>
 
-                    <div class="wc-form__block" :class="{'wc-form__block--err': registrationForm.confirmPassword.hasErrors()}">
+                    <div class="wc-form__block" :class="{'wc-form__block--err': registrationForm.passwordConfirmation.hasErrors()}">
                       <label for="confirm-password">Confirm Password</label>
                       <input type="password" class="wc-form__input" placeholder="Confirm Password" id="passwordConfirmation"
-                        v-model="registrationForm.confirmPassword.value" @keyup="registrationForm.confirmPassword.validate()" @blur="registrationForm.confirmPassword.validate()">
-                      <p class="wc-form__err-msg">{{ registrationForm.confirmPassword.firstError }}</p>
+                        v-model="registrationForm.passwordConfirmation.value" @keyup="registrationForm.passwordConfirmation.validate()" @blur="registrationForm.passwordConfirmation.validate()">
+                      <p class="wc-form__err-msg">{{ registrationForm.passwordConfirmation.firstError }}</p>
                     </div>
 
                     <div class="checkbox">
@@ -170,13 +171,21 @@ let registrationForm = new FormChecker({
       name: 'Password',
       validations: {
         required: true,
+        password: {
+          length: 6,
+          lowerCase: 1,
+          upperCase: 1,
+          numbers: 1,
+          symbols: 1,
+        },
       },
     },
-    confirmPassword: {
+    passwordConfirmation: {
       value: '',
       name: 'Password Confirmation',
       validations: {
         required: true,
+        confirmation: 'password',
       },
     },
   },
@@ -205,6 +214,7 @@ export default {
       return formReady
     },
     signup () {
+      this.registrationForm.$validate('force')
       this.cognitoError = null
 
       if (registrationForm.$isValid()) {
