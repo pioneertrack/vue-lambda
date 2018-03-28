@@ -70,7 +70,7 @@ export default {
       dropzoneOptions: {
         url: process.env.API_ENDPOINT + '/properties-bulk/import',
         thumbnailWidth: 150,
-        maxFilesize: 0.5,
+        maxFilesize: 50,
         addRemoveLinks: true,
         uploadMultiple: false,
         headers: { 'access-control-request-headers': '', },
