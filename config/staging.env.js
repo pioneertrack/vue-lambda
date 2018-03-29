@@ -1,6 +1,8 @@
 'use strict'
 module.exports = {
   NODE_ENV: '"staging"',
+  GA_ID:'"UA-111612913-3"',
+  VERSION:git.short(),
   API_ENDPOINT:'"https://api.staging.weathercheck.co"',
   DOMAIN:'"api.staging.weathercheck.co"',
   COGNITO_REGION: '"us-east-1"',
@@ -9,4 +11,5 @@ module.exports = {
   COGNITO_IDENTITYPOOLID: '"us-east-1:247ccaf8-116f-4bba-b77c-cbdafa451ac5"',
   SS_AUTHID:'"6413738716745430"',
   SENTRY_URL:'"https://c6716aef4210458b987ad55134538c2c@sentry.io/736144"',
+
 }

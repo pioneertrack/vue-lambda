@@ -22,6 +22,7 @@
     "axios": "^0.17.1",
     "bootstrap": "^4.0.0",
     "chart.js": "^2.7.1",
+    "git-rev-sync": "^1.10.0",
     "ini-parser": "0.0.2",
     "jquery": "^3.3.1",
     "keen-ui": "^1.0.1",

@@ -68,7 +68,7 @@ Vue.use(VueAnalytics, {
   // [Required] The version of your app.
   appVersion: '0.1',
   // [Required] Your Google Analytics tracking ID.
-  trackingId: 'UA-111612913-3',
+  trackingId: process.env.GA_ID,
   // If you're using vue-router, pass the router instance here.
   vueRouter: router,
 })

@@ -1,6 +1,10 @@
 'use strict'
+const git = require('git-rev-sync');
+
 module.exports = {
   NODE_ENV: '"production"',
+  GA_ID:'"UA-111612913-2"',
+  VERSION:git.short(),
   API_ENDPOINT:'"https://api.app.weathercheck.co"',
   DOMAIN:'"app.weathercheck.co"',
   COGNITO_REGION: '"us-east-2"',
