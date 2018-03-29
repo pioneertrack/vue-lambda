@@ -1,6 +1,6 @@
 <template>
   <!-- Center Content section -->
-  <div class="container-fluid">
+  <div class="container-fluid m-b-45">
     <div class="container">
     <template v-if="!importRequired">
         <div class="row m-t-25">

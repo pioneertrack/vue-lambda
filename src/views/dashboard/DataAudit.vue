@@ -1,6 +1,6 @@
 <template>
   <!-- Center Content section -->
-  <div class="container-fluid">
+  <div class="container-fluid m-b-45">
     <div class="container">
       <div class="row m-t-25">
        <div class="col-md-12">
