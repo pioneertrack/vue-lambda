@@ -66,7 +66,7 @@ Vue.use(VueAnalytics, {
   // [Required] The name of your app as specified in Google Analytics.
   appName: 'weathercheck',
   // [Required] The version of your app.
-  appVersion: '0.1',
+  appVersion: process.env.VERSION,
   // [Required] Your Google Analytics tracking ID.
   trackingId: process.env.GA_ID,
   // If you're using vue-router, pass the router instance here.

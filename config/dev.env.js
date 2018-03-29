@@ -1,11 +1,12 @@
 'use strict'
 const merge = require('webpack-merge')
 const prodEnv = require('./prod.env')
+const git = require('git-rev-sync');
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
   GA_ID:'"UA-111612913-3"',
-  VERSION:git.short(),
+  VERSION: '"' + git.short() + '"',
   COGNITO_REGION: '"us-east-2"',
   COGNITO_USERPOOLID: '"us-east-2_LDRW5Y1Fp"',
   DOMAIN:'"localhost"',
