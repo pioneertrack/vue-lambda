@@ -1,6 +1,6 @@
 <template>
     <WcCard>
-        <div slot="header">Recent Weather Alerts</div>
+        <div slot="header">Recent Weather Events</div>
         <div slot="content" class="weather-table">
             <div class="table-responsive">
                 <table cellpadding="3" cellspacing="3" class="table">

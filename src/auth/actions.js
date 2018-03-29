@@ -11,7 +11,6 @@ import * as types from './mutation-types'
 let isSecure = process.env.NODE_ENV !== 'development'
 
 function constructUser (cognitoUser, session) {
-  console.log(cognitoUser)
   return {
     username: cognitoUser.getUsername(),
     tokens: {
