@@ -11,6 +11,7 @@ import * as types from './mutation-types'
 let isSecure = process.env.NODE_ENV !== 'development'
 
 function constructUser (cognitoUser, session) {
+  console.log(cognitoUser)
   return {
     username: cognitoUser.getUsername(),
     tokens: {
@@ -27,7 +28,7 @@ export default function actionsFactory(config) {
   const cognitoUserPool = new CognitoUserPool({
     UserPoolId: config.UserPoolId,
     ClientId: config.ClientId,
-    Storage: new CookieStorage({domain: process.env.DOMAIN, secure: false}),
+    Storage: new CookieStorage({domain: process.env.DOMAIN, secure: process.env.NODE_ENV !== 'development'}),
     Paranoia: 6
   })
 
@@ -59,6 +60,11 @@ export default function actionsFactory(config) {
     },
 
     authenticateUser ({ commit }, payload) {
+      let days = null;
+      if(payload.rememberMe){
+        days = 30;
+      }
+
       const authDetails = new AuthenticationDetails({
         Username: payload.username,
         Password: payload.password
@@ -66,7 +72,7 @@ export default function actionsFactory(config) {
       const cognitoUser = new CognitoUser({
         Pool: cognitoUserPool,
         Username: payload.username,
-        Storage: new CookieStorage({domain: process.env.DOMAIN, secure: false})
+        Storage: new CookieStorage({domain: process.env.DOMAIN, secure: process.env.NODE_ENV !== 'development', expires: days})
       })
 
       return new Promise((resolve, reject) => cognitoUser.authenticateUser(authDetails, {
