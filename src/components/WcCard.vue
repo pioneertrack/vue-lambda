@@ -10,7 +10,7 @@
             <div>
                 <slot name="content"></slot>
             </div>
-            <div class="wc-footer">
+            <div class="wc-card-footer">
                 <slot name="footer"></slot>
             </div>
         </div>
@@ -32,7 +32,7 @@ export default {
   },
   mounted () {
     if (this.$slots.footer === undefined) {
-      this.$el.querySelector('.wc-footer').remove()
+      this.$el.querySelector('.wc-card-footer').remove()
     }
     if (this.isLoading) {
       this.$el.querySelector('.wc-card-layover').style.display = 'flex'
@@ -82,7 +82,7 @@ export default {
                 margin: 0;
                 padding: 13px 23px;
             }
-            .wc-footer {
+            .wc-card-footer {
                 border-top: 1px solid #dee2e6;
             }
 

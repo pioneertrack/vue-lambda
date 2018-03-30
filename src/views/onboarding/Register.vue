@@ -78,46 +78,49 @@
                 </form>
               </div>
             </div>
-            <ui-modal ref="confirmModal" title="Monitoring Notice">
-              <div class="modal-body">
-                <div>
-                  <h3 class="text-center">Effective as of November 13, 2017</h3>
-                  <h2>INSTALLATION OF SENSORY EQUIPMENT</h2>
-                  <ol>
-                      <li>
-                          We may need access to the physical premises of the property address you provided to the
-                          Company Website.
-                      </li>
-                      <li>
-                          If such access is needed and we have secured your agreement with such need on a specific
-                          portion of the Company WebSite, you hereby grant us a non- exclusive license to an install and
-                          affix sensory equipment (the Equipment) to the Premises, together with the right to
-                          Company, its successors, assigns, contractors, and agents, to construct, install, operate,
-                          maintain, inspect, repair, renew, remove, and relocate the Equipment and to doing anything
-                          necessary or useful or convenient in connection with the foregoing
-                      </li>
-                      <li>
-                          If you don't own the Premises, you are solely responsible for securing the required
-                          permission for installation to take place on the Premises as outlined above. You may be asked
-                          to provide written evidence that you have requested and been afforded all necessary
-                          permissions to complete the installation and you should be prepared to present said evidence
-                          at any time.
-                      </li>
-                      <li>
-                          We will make every effort to install the Equipment consistent with the aesthetics and
-                          construction of the Premises
-                      </li>
-                      <li>
-                          The Equipment will at all times remain the personal property of Company, its successors or
-                          assigns, and may be removed by Company upon the termination of this TOS.
-                      </li>
-                  </ol>
+            <vue-modal name="monitoring-notice"
+                       height="auto"
+            >
+                <div style="display:flex; flex-direction: column; height:100%;">
+                    <h2 style="align-self:center; flex:1;">Weather Data Collection</h2>
+                    <h4 style="align-self:center; flex:1;">Effective as of November 13, 2017</h4>
+                    <div style="margin: 0 4em; padding:1em; background: #F5F6FA; overflow-y:scroll; max-height:300px;" v-on:scroll="scrollTerms">
+                        <strong><p>INSTALLATION OF SENSORY EQUIPMENT</p></strong>
+                        <ol>
+                            <li>
+                                We may need access to the physical premises of the property address you provided to the
+                                Company Website.
+                            </li>
+                            <li>
+                                If such access is needed and we have secured your agreement with such need on a specific
+                                portion of the Company WebSite, you hereby grant us a non- exclusive license to an install and
+                                affix sensory equipment (the Equipment) to the Premises, together with the right to
+                                Company, its successors, assigns, contractors, and agents, to construct, install, operate,
+                                maintain, inspect, repair, renew, remove, and relocate the Equipment and to doing anything
+                                necessary or useful or convenient in connection with the foregoing
+                            </li>
+                            <li>
+                                If you don't own the Premises, you are solely responsible for securing the required
+                                permission for installation to take place on the Premises as outlined above. You may be asked
+                                to provide written evidence that you have requested and been afforded all necessary
+                                permissions to complete the installation and you should be prepared to present said evidence
+                                at any time.
+                            </li>
+                            <li>
+                                We will make every effort to install the Equipment consistent with the aesthetics and
+                                construction of the Premises
+                            </li>
+                            <li>
+                                The Equipment will at all times remain the personal property of Company, its successors or
+                                assigns, and may be removed by Company upon the termination of this TOS.
+                            </li>
+                        </ol>
+                    </div>
+                    <div style="align-self:center; flex:1;" class="m-b-15 m-t-15">
+                        <button type="button" class="btn" style="background-color:#8ec549;" :disabled="!canSubmit" @click="sendRegistration">Accept</button>
+                    </div>
                 </div>
-              </div>
-              <div slot="footer">
-                  <button type="button" class="btn" @click="sendRegistration">Accept</button>
-              </div>
-            </ui-modal>
+            </vue-modal>
         </section>
     </div>
 </template>
@@ -199,13 +202,26 @@ export default {
       acceptSecondTerms: false,
       cognitoError: null,
       registrationForm: registrationForm,
+      collectionScrollBottom: false,
+      submitting: false,
     }
   },
   mounted () {
   },
-  computed: {},
+  computed: {
+    canSubmit () {
+      return this.collectionScrollBottom && !this.submitting
+    },
+  },
   watch: {},
   methods: {
+    scrollTerms (e) {
+      let target = e.target
+      // visible height + pixel scrolled = total height
+      if (target.offsetHeight + target.scrollTop === target.scrollHeight) {
+        this.collectionScrollBottom = true
+      }
+    },
     formReady () {
       let formReady = false
       if (this.acceptFirstTerms && registrationForm.$isTouched() && registrationForm.$isValid()) {
@@ -218,16 +234,11 @@ export default {
       this.cognitoError = null
 
       if (registrationForm.$isValid()) {
-        if (this.acceptSecondTerms) {
-          this.sendRegistration() // the terms is already accepted, so we don't need to call the modal again
-        } else {
-          this.$refs.confirmModal.open()
-        }
+        this.$modal.show('monitoring-notice')
       }
     },
     sendRegistration () {
-      this.acceptSecondTerms = true
-
+      this.submitting = true
       if (this.acceptFirstTerms) {
         this.$store.dispatch('signUp', {
           username: registrationForm.email.value,
@@ -240,6 +251,7 @@ export default {
             'custom:accountType': registrationForm.accountType.value,
           },
         }).then(() => {
+          this.submitting = false
           let firstName, lastName
           if (this.registrationForm.name.value) {
             let nameSpace = this.registrationForm.name.value.indexOf(' ')
@@ -264,16 +276,11 @@ export default {
 
           this.$router.push('/dashboard')
         }).catch(error => {
-          this.$refs.confirmModal.close()
+          this.$modal.hide('monitoring-notice')
+          this.submitting = false
           this.cognitoError = error.message
         })
       }
-    },
-    openModal (ref) {
-      this.$refs[ref].open()
-    },
-    closeModal (ref) {
-      this.$refs[ref].close()
     },
   },
 }

@@ -11,14 +11,6 @@ import axios from 'axios'
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
 
-function isDevelopment () {
-  let isDevelopment = false
-  if (process.env['NODE_ENV'] === 'development') {
-    isDevelopment = true
-  }
-  return isDevelopment
-}
-
 router.beforeEach((to, from, next) => {
   if (to.meta && to.meta.title) {
     document.title = 'Weathercheck - ' + to.meta.title
@@ -27,7 +19,7 @@ router.beforeEach((to, from, next) => {
   }
 
   const isUnguarded = to.matched.some(routeInfo => routeInfo.meta.isUnguarded)
-  if (isUnguarded || isDevelopment()) {
+  if (isUnguarded) {
     next()
   } else {
     store.dispatch('getCurrentUser').then((user) => {

@@ -37,7 +37,7 @@
                                     <div class="col-md-8 col-md-offset-2">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="remember">Remember Me
+                                                <input type="checkbox" name="remember" v-model="rememberMe">Remember Me
                                             </label>
                                         </div>
                                     </div>
@@ -83,6 +83,7 @@ export default {
       protectedUI: false,
       email: '',
       password: '',
+      rememberMe: false,
     }
   },
   methods: {
@@ -90,6 +91,7 @@ export default {
       this.$store.dispatch('authenticateUser', {
         username: this.email,
         password: this.password,
+        rememberMe: this.rememberMe,
       }).then(() => {
         this.disableAllInputs = true
         this.password = ''

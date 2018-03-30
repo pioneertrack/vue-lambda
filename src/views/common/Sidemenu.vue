@@ -89,6 +89,7 @@ export default {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         padding-top: 16px;
+        z-index:1;
     }
 
     .rail-nav .icon {
