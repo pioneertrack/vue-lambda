@@ -17,13 +17,13 @@
             <!-- Street -->
             <div class="form-group col-md-8 col-md-offset-2">
               <label for="street">Street Address</label>
-              <input type="text" placeholder="123 Main St" name="street" id="street" v-model="currentProperty.address" v-on:change="inputChange">
+              <input type="text" placeholder="Street Address" name="street" id="street" v-model="currentProperty.address" v-on:change="inputChange">
             </div>
 
             <!-- City -->
             <div class="form-group col-md-8 col-md-offset-2">
               <label for="city">City</label>
-              <input type="text" placeholder="Louisville" name="city" id="city" v-model="currentProperty.city" v-on:change="inputChange">
+              <input type="text" placeholder="City" name="city" id="city" v-model="currentProperty.city" v-on:change="inputChange">
             </div>
 
             <!-- State & Zip-->
@@ -31,11 +31,11 @@
                 <div class="row">
                   <div class="col-md-6 double-section">
                     <label for="state">State</label>
-                    <input type="text" placeholder="KY" name="state" id="state" v-model="currentProperty.state" v-on:change="inputChange">
+                    <input type="text" placeholder="State" name="state" id="state" v-model="currentProperty.state" v-on:change="inputChange">
                   </div>
                   <div class="col-md-6 double-section">
                     <label for="zip">Zip Code</label>
-                    <input type="text" placeholder="40202" name="zip" id="zip" v-model="currentProperty.zip" v-on:change="inputChange">
+                    <input type="text" placeholder="Zip" name="zip" id="zip" v-model="currentProperty.zip" v-on:change="inputChange">
                   </div>
                 </div>
               </div>
@@ -43,7 +43,7 @@
             <!-- Country -->
             <div class="form-group col-md-8 col-md-offset-2">
               <label for="country">Country</label>
-              <input type="text" placeholder="USA" name="country" id="country" v-model="currentProperty.country" v-on:change="inputChange">
+              <input type="text" placeholder="Country" name="country" id="country" v-model="currentProperty.country" v-on:change="inputChange">
             </div>
 
             <!-- Login Button -->
@@ -136,5 +136,11 @@ export default {
 <style scoped>
   .properties-added{
     background-color: #F3F4FA;
+  }
+  .onboarding input {
+    color : #6a6a6a !important;
+  }
+  .onboarding input::placeholder{
+    color: #cacaca !important;
   }
 </style>
