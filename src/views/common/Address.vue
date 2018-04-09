@@ -2,10 +2,11 @@
     <div class="container-fluid single-address-map">
         <div class="row">
             <template v-if="markers[0].position.lat !== ''">
-                <gmap-map :center="center" :zoom="19" map-type-id="satellite" style="height: 450px" setTilt="0">
+                <gmap-map :center="center" :zoom="17" map-type-id="satellite" style="height: 450px" setTilt="0">
                     <gmap-marker v-for="m in markers"
                                  v-bind:data="m"
                                  v-bind:key="m.position.lat"
+                                 icon="/static/images/map-marker-blue.png"
                                  :position="m.position"
                                  :clickable="true"
                                  :draggable="true"
