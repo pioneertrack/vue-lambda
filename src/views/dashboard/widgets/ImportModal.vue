@@ -36,6 +36,7 @@
                             name="Upload Properties"
                             value="Upload Properties"
                             id="uploadBtnCsv"
+                            :disabled="!canUpload"
                             @click="sendProperties"
                     >
                         Upload Properties
@@ -67,6 +68,7 @@ export default {
     return {
       isBulk: true,
       error: '',
+      canUpload: true,
       dropzoneOptions: {
         url: process.env.API_ENDPOINT + '/properties-bulk/import',
         thumbnailWidth: 150,
@@ -93,16 +95,19 @@ export default {
       this.error = ''
     },
     sendProperties () {
+      this.canUpload = false
       this.$refs.fileUploadZone.dropzone.processQueue()
     },
     sendingEvent (file, xhr, formData) {
       formData.append('teamId', this.$store.state.teamId)
     },
     vsuccess (file, response) {
+      this.canUpload = true
       this.error = ''
       this.$modal.hide(this.modalName)
     },
     verror (file, message, xhr) {
+      this.canUpload = true
       this.error = message.error
     },
     switchBulk () {

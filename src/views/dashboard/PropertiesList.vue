@@ -1,11 +1,6 @@
 <template>
     <div>
-        <WcCard :is-loading="noAddresses">
-            <div slot="layover" class="import-properties-view" v-if="noAddresses">
-                <h1>Import Properties</h1>
-                <p>You don't have any properties in the system yet.</p>
-                  <button class="btns btns-green pull-right" @click="openImport()">Import Properties</button>
-            </div>
+        <WcCard>
             <div style="position:relative;" slot="header">Properties : {{count}}</div>
             <div slot="content">
                 <div class="table-responsive">
@@ -28,8 +23,12 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="import-properties-view" v-if="noAddresses">
+                    <p>There are no properties associated with your account,<br/>please add one to get started.</p>
+                    <button class="blue-border btn-tranparent btns-blue pull-right" @click="openImport()">Add Properties</button>
+                </div>
             </div>
-            <div slot="footer">
+            <div slot="footer" v-if="!noAddresses">
                 <paginate
                         :page-count="pages"
                         :page-range="2"
@@ -38,6 +37,7 @@
                         :next-text="'Next'"
                         :container-class="'pagination'"
                         :page-class="'page-item'"
+                        class="m-l-20"
                         >
                 </paginate>
             </div>
@@ -88,7 +88,10 @@ export default {
     width:100%;
     flex-direction:column;
     align-items:center;
+    justify-content: center;
+
     text-align:center;
+    min-height:300px;
 
     h1 {
         margin-top: 1em;
