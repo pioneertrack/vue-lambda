@@ -71,7 +71,6 @@ export default {
 
         &.wc-card-loading{
             .wc-card-inner{
-                filter: blur(4px);
             }
         }
 

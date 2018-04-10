@@ -48,13 +48,15 @@
 
             <!-- Login Button -->
             <div class="form-group login-button">
-              <div class="col-md-6 col-md-offset-3">
+              <div class="col-md-8 col-md-offset-2" style="text-align:center;">
                 <div v-if="showError">
                   <div class="alert alert-danger" role="alert">We could not find the address.</div>
                 </div>
-                <button type="button" class="blue-border btn-link btn-tranparent btns-blue m-b-15" @click="add()">
-                  Add Address
-                </button>
+                  <div style="width:100%;" class="justify-content-center">
+                    <button type="button" class="blue-border btn-link btn-tranparent btns-blue m-b-15" @click="add()">
+                      Add Address
+                    </button>
+                  </div>
               </div>
             </div>
 

@@ -18,6 +18,7 @@
                             :count="propertiesCount"
                             :pages="propertyPages"
                             :no-addresses="importRequired"
+                            @properties-added="propertiesAdded"
                             v-on:update="getProperties"></PropertiesList>
                 </div>
             </div>
@@ -75,15 +76,16 @@ export default {
           this.propertyPages = parseInt(response.headers['x-pagination-pages'])
           this.properties = response.data
           this.propertiesCount = parseInt(response.headers['x-pagination-count'])
-          if (this.propertiesCount === 0) {
-            this.importRequired = true
-          }
+          this.importRequired = this.propertiesCount === 0
         })
     },
     openImport: function (ref) {
       this.$modal.show('add-new-properties-modal')
     },
     refreshProperties () {
+      this.getProperties({ page: 1, })
+    },
+    propertiesAdded () {
       this.getProperties({ page: 1, })
     },
   },
