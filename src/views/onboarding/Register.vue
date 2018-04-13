@@ -82,10 +82,9 @@
                        height="auto"
             >
                 <div style="display:flex; flex-direction: column; height:100%;">
-                    <h2 style="align-self:center; flex:1;">Weather Data Collection</h2>
-                    <h4 style="align-self:center; flex:1;">Effective as of November 13, 2017</h4>
-                    <div style="margin: 0 4em; padding:1em; background: #F5F6FA; overflow-y:scroll; max-height:300px;" v-on:scroll="scrollTerms">
-                        <strong><p>INSTALLATION OF SENSORY EQUIPMENT</p></strong>
+                    <h2 style="align-self:center; flex:1; font-size:24px;">INSTALLATION OF SENSORY EQUIPMENT</h2>
+                    <h4 style="align-self:center; flex:1;" class="m-b-20">Effective as of November 13, 2017</h4>
+                    <div style="margin: 0 4em; padding:1em; background: #F5F6FA; overflow-y:scroll; max-height:300px;">
                         <ol>
                             <li>
                                 We may need access to the physical premises of the property address you provided to the
@@ -210,18 +209,11 @@ export default {
   },
   computed: {
     canSubmit () {
-      return this.collectionScrollBottom && !this.submitting
+      return !this.submitting
     },
   },
   watch: {},
   methods: {
-    scrollTerms (e) {
-      let target = e.target
-      // visible height + pixel scrolled = total height
-      if (target.offsetHeight + target.scrollTop === target.scrollHeight) {
-        this.collectionScrollBottom = true
-      }
-    },
     formReady () {
       let formReady = false
       if (this.acceptFirstTerms && registrationForm.$isTouched() && registrationForm.$isValid()) {
@@ -279,6 +271,7 @@ export default {
           this.$modal.hide('monitoring-notice')
           this.submitting = false
           this.cognitoError = error.message
+          window.scrollTo(0, 0)
         })
       }
     },
