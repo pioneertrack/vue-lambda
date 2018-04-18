@@ -18,7 +18,8 @@ function constructUser (cognitoUser, session) {
       AccessToken: session.getAccessToken().getJwtToken(),
       RefreshToken: session.getRefreshToken().getToken()
     },
-    attributes: {}
+    attributes: {},
+    groups: session.getIdToken().payload["cognito:groups"],
   }
 }
 

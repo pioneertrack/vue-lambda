@@ -50,7 +50,7 @@ export default {
     }
   },
   beforeRouteEnter (to, from, next) {
-    axios.get(process.env.API_ENDPOINT + '/team/' + store.state.teamId + '/properties',
+    axios.get(process.env.API_ENDPOINT + '/team/' + store.state.team.id + '/properties',
       {
         params: { per_page: 20, page: 1, },
       })
@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     getProperties (event) {
-      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.teamId + '/properties',
+      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.team.id + '/properties',
         {
           params: { per_page: 20, page: event.page, },
         })

@@ -64,6 +64,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
+                    <a v-if="canActivateSuperUser" href="" @click="toggleSuperUser()" class="fa fa-fw fa-btn fa-sign-out" title="Enable SuperUser">Toggle SuperUser</a>
                     <a target="_blank" href="https://weathercheck.co/terms/" class="fa fa-fw fa-btn fa-sign-out" title="Terms of Use">Terms of Use</a>
                     <router-link to="/logout" class="fa fa-fw fa-btn fa-sign-out" title="Logout">Logout</router-link>
                 </li>
@@ -73,8 +74,20 @@
 </template>
 
 <script>
+import store from '@/store/index'
+
 export default {
   name: 'Sidemenu',
+  computed: {
+    canActivateSuperUser () {
+      return this.$store.getters.isUserInGroup('WCAdmin')
+    },
+  },
+  methods: {
+    toggleSuperUser: () => {
+      store.dispatch('TOGGLE_SUPERUSER')
+    },
+  },
 }
 </script>
 

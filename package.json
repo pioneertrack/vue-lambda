@@ -44,7 +44,8 @@
     "vue2-dropzone": "^3.0.4",
     "vue2-google-maps": "^0.8.6",
     "vuejs-paginate": "^1.6.0",
-    "vuex": "^2.5.0"
+    "vuex": "^2.5.0",
+    "vuex-persistedstate": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -101,7 +102,7 @@
     "vue-ua": "^1.5.0",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
-    "webpack-dev-server": "^2.9.1",
+    "webpack-dev-server": "^2.11.2",
     "webpack-merge": "^4.1.0"
   },
   "engines": {

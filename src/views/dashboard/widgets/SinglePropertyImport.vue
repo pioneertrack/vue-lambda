@@ -124,7 +124,7 @@ export default {
     },
     done () {
       this.saving = true
-      PropertyService.addMultipleProperties(this.$store.state.teamId, this.properties).then((result) => {
+      PropertyService.addMultipleProperties(this.$store.state.team.id, this.properties).then((result) => {
         this.$emit('on-done')
       }).finally(() => {
         this.saving = false
