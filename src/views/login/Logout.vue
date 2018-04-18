@@ -28,6 +28,7 @@ export default {
   methods: {
     signOut: function () {
       this.$store.dispatch('signOut')
+      localStorage.clear()
     },
   },
   mounted () {

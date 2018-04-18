@@ -99,7 +99,7 @@ export default {
       this.$refs.fileUploadZone.dropzone.processQueue()
     },
     sendingEvent (file, xhr, formData) {
-      formData.append('teamId', this.$store.state.teamId)
+      formData.append('teamId', this.$store.state.team.id)
     },
     vsuccess (file, response) {
       this.canUpload = true

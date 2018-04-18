@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     getWeatherEvents () {
-      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.teamId + '/weather-events', { params: { limit: 10000, }, })
+      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.team.id + '/weather-events', { params: { limit: 10000, }, })
         .then(response => {
           this.weatherEvents = response.data
         })

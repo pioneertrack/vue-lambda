@@ -53,7 +53,7 @@ getDirectories ('./functions').forEach ((dir) => {
       serverless['functions'][funcName] = copy
 
       // loop through events
-      if (copy.events) {
+      if (copy.events && typeof copy.events !== 'undefined') {
         copy.events.forEach ((event) => {
           let type = Object.keys (event)[0]
           if (type === 'http') {

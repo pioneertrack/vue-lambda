@@ -70,7 +70,7 @@ export default {
     }
   },
   beforeRouteEnter (to, from, next) {
-    axios.get(process.env.API_ENDPOINT + '/team/' + store.state.teamId + '/properties',
+    axios.get(process.env.API_ENDPOINT + '/team/' + store.state.team.id + '/properties',
       {
         params: { per_page: 20, page: 1, },
       })
@@ -99,7 +99,7 @@ export default {
       }
     },
     getProperties (event) {
-      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.teamId + '/properties',
+      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.team.id + '/properties',
         {
           params: { per_page: 20, page: event.page, },
         })
@@ -111,13 +111,13 @@ export default {
         })
     },
     getWeatherEvents () {
-      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.teamId + '/weather-events')
+      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.team.id + '/weather-events')
         .then(response => {
           this.weatherEvents = response.data
         })
     },
     getPercentStatus () {
-      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.teamId + '/percent-status/')
+      axios.get(process.env.API_ENDPOINT + '/team/' + this.$store.state.team.id + '/percent-status/')
         .then(response => {
           this.percent_status = response.data.percent_status
         })

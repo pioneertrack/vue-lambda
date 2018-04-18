@@ -31,7 +31,7 @@ export default {
   },
   mounted () {
     let getProperties = (southWest, northEast) => {
-      PropertyService.getPropertiesInRegion(store.state.teamId,
+      PropertyService.getPropertiesInRegion(store.state.team.id,
         southWest, northEast
       ).then((properties) => {
         this.properties = properties
