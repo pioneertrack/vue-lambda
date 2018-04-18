@@ -265,8 +265,7 @@ export default {
             lastName: lastName,
             noninteraction: true,
           })
-
-          this.$router.push('/dashboard')
+          this.authenticateUser()
         }).catch(error => {
           this.$modal.hide('monitoring-notice')
           this.submitting = false
@@ -274,6 +273,18 @@ export default {
           window.scrollTo(0, 0)
         })
       }
+    },
+    authenticateUser () {
+      // after signing up the user, wait a moment,
+      // then authenticate them
+      setTimeout(() => {
+        this.$store.dispatch('authenticateUser', {
+          username: registrationForm.email.value,
+          password: registrationForm.password.value,
+        }).then(() => {
+          this.$router.push('/dashboard')
+        })
+      }, 500)
     },
   },
 }

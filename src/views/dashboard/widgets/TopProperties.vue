@@ -16,8 +16,8 @@
           <tbody>
             <tr v-for="property in topProperties" v-bind:key="property.name">
               <td>{{property.property}}</td>
-              <td class="text-center">{{property.minor_events}}</td>
               <td class="text-center">{{property.damaging_events}}</td>
+              <td class="text-center">{{property.minor_events}}</td>
               <td class="text-center">{{property.average}}</td>
               <td></td>
             </tr>
