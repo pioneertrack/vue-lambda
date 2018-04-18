@@ -44,19 +44,18 @@ export default new Vuex.Store({
       })
     },
     TOGGLE_SUPERUSER: function ({ commit, state, }) {
-      // localStorage.setItem('wc-superuser', JSON.stringify(value))
       commit('SET_SUPERUSER', !state.superUserEnabled)
     },
   },
   getters: {
     isUserInGroup: (state) => (group) => {
-      if (typeof state.cognito === 'undefined') {
+      if (typeof state.cognito === 'undefined' || state.cognito == null) {
         return false
       }
-      if (typeof state.cognito.user === 'undefined') {
+      if (typeof state.cognito.user === 'undefined' || state.cognito.user == null) {
         return false
       }
-      if (typeof state.cognito.user.groups === 'undefined') {
+      if (typeof state.cognito.user.groups === 'undefined' || state.cognito.user.groups == null) {
         return false
       }
       return state.cognito.user.groups.indexOf(group) !== -1
