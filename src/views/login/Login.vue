@@ -96,9 +96,7 @@ export default {
         this.disableAllInputs = true
         this.password = ''
         this.errorMessage = null
-        setTimeout(() => {
-          this.$router.push('dashboard')
-        }, 200)
+        this.$router.push('dashboard')
       }).catch((err) => {
         this.errorMessage = err.message
         this.protectedUI = false
