@@ -30,6 +30,12 @@ export default [
     props: true,
   },
   {
+    path: '/dashboard/data-audit',
+    name: 'dashboard-data-audit',
+    component: DataAudit,
+    title: 'Dashboard',
+  },
+  {
     path: '/dashboard/property/:id',
     name: 'dashboard-property-page',
     component: PropertyPage,
