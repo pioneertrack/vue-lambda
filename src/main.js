@@ -7,7 +7,6 @@ import * as VueGoogleMaps from 'vue2-google-maps'
 import VueAnalytics from 'vue-ua'
 import VueGtm from 'vue-gtm'
 import VModal from 'vue-js-modal'
-import axios from 'axios'
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
 
@@ -23,15 +22,11 @@ router.beforeEach((to, from, next) => {
     next()
   } else {
     store.dispatch('getCurrentUser').then((user) => {
-      if (store.state.teamId === null) {
-        axios.get(process.env.API_ENDPOINT + '/team/' + store.state.cognito.user.username + '/team/')
-          .then(response => {
-            store.state.teamId = response.data.teamId
-            next()
-          })
-      } else {
+      store.dispatch('RETRIEVE_TEAM').then((team) => {
         next()
-      }
+      }).catch(() => {
+        next('/login')
+      })
     }).catch(() => {
       next('/login')
     })

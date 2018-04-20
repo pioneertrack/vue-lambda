@@ -3,8 +3,11 @@
     <HeaderTop v-show="topHead"/>
     <Header v-show="mainHead"/>
     <Sidemenu v-show="sidemenu"/>
-    <div v-bind:class="{'container-sidemenu-is-open': sidemenu}">
-      <router-view></router-view>
+    <div v-bind:class="{'container-sidemenu-is-open': sidemenu}" style="display:flex; flex-direction: column;">
+      <AdminBar></AdminBar>
+        <div>
+          <router-view></router-view>
+        </div>
     </div>
     <FooterLinks v-show="!sidemenu"/>
   </div>
@@ -16,6 +19,7 @@ import Header from './views/common/Header'
 import FooterLinks from './views/common/FooterLinks'
 import HeaderTop from './views/common/HeaderTop'
 import Sidemenu from './views/common/Sidemenu'
+import AdminBar from './views/dashboard/AdminBar'
 
 export default {
   data () {
@@ -55,6 +59,7 @@ export default {
     FooterLinks,
     HeaderTop,
     Sidemenu,
+    AdminBar,
   },
 }
 </script>
