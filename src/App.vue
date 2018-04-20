@@ -2,7 +2,7 @@
   <div>
     <HeaderTop v-show="topHead"/>
     <Header v-show="mainHead"/>
-    <Sidemenu v-show="sidemenu"/>
+    <Sidemenu v-show="sidemenu" v-if="showSideMenu"/>
     <div v-bind:class="{'container-sidemenu-is-open': sidemenu}" style="display:flex; flex-direction: column;">
       <AdminBar></AdminBar>
         <div>
@@ -29,6 +29,17 @@ export default {
       mainHead: true,
       sidemenu: false,
     }
+  },
+  computed: {
+    showSideMenu () {
+      if (typeof this.$route.meta === 'undefined') {
+        return true
+      } else if (typeof this.$route.meta.hideSideMenu === 'undefined') {
+        return true
+      } else {
+        return !this.$route.meta.hideSideMenu
+      }
+    },
   },
   created () {
     if (this.$route.path.startsWith('/dashboard')) {

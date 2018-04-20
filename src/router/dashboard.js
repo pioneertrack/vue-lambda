@@ -28,6 +28,10 @@ export default [
     component: DataAudit,
     title: 'Dashboard',
     props: true,
+    meta: {
+      isUnguarded: true,
+      hideSideMenu: true,
+    },
   },
   {
     path: '/dashboard/data-audit',
