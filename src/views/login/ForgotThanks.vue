@@ -9,11 +9,11 @@
                 Thank You
               </div>
 
-              <div class="form-group">
-                <label class="col-md-8 col-md-offset-2 control-label">If weatherCheck account exists for {{ email }}, an e-mail will be sent with further  instructions, You may need to check your spam folder  or unblock <br>no-reply@weathercheck.co</label>
+              <div class="form-group  text-center">
+                <label class="col-md-8 col-md-offset-2 control-label center m-b-25">If a WeatherCheck account exists for {{ email }}, an e-mail will be sent with further instructions. You may need to check your spam folder or unblock <br>no-reply@weathercheck.co</label>
               </div>
 
-              <div class="form-group login-button">
+              <div class="form-group login-button text-center">
                 <div class="col-md-5 col-md-offset-4">
                   <router-link class="btn btn-green" to="/resetpassword">Continue</router-link>
                 </div>
