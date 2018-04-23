@@ -135,45 +135,53 @@ export default {
     TopProperties,
     WcCard,
   },
+  computed: {
+    _teamId () {
+      if (typeof this.teamId !== 'undefined') {
+        return this.teamId
+      }
+      return this.$store.state.team.id
+    },
+  },
   mounted: function () {
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/percent-status/')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/percent-status/')
       .then(response => {
         this.percent_status = response.data.percent_status
       })
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/info')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/info')
       .then(response => {
         this.company_name = response.data.name
         this.properties_count = response.data.properties_count
       })
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/top-mortgage-holders/')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/top-mortgage-holders/')
       .then(response => {
         this.top_mortgage_holders = response.data.top_mortgage_holders
       })
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/property-ages/')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/property-ages/')
       .then(response => {
         this.property_ages = response.data.property_ages
       })
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/portfolio-ltv/')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/portfolio-ltv/')
       .then(response => {
         this.portfolio_ltv = response.data.portfolio_ltv
       })
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/hail-size/')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/hail-size/')
       .then(response => {
         this.hail_size = response.data.hail_size
       })
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/portfolio-value/')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/portfolio-value/')
       .then(response => {
         this.portfolio_value = response.data.portfolio_value
       })
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/event-statistics/')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/event-statistics/')
       .then(response => {
         this.event_statistics = response.data.event_statistics
       })
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/hail-events-by-month/')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/hail-events-by-month/')
       .then(response => {
         this.hail_events_by_month = response.data.hail_events_by_month
       })
-    axios.get(process.env.API_ENDPOINT + '/team/' + this.teamId + '/top-properties/')
+    axios.get(process.env.API_ENDPOINT + '/team/' + this._teamId + '/top-properties/')
       .then(response => {
         this.top_properties = response.data.top_properties
       })
