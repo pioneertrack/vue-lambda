@@ -238,7 +238,7 @@ export default {
           attributes: {
             email: registrationForm.email.value,
             name: registrationForm.name.value,
-            phone_number: '+1' + registrationForm.phone.value,
+            phone_number: '+1' + registrationForm.phone.value.replace(/[^0-9]/g,''),
             'custom:company': registrationForm.company.value,
             'custom:accountType': registrationForm.accountType.value,
           },
