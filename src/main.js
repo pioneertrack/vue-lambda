@@ -9,6 +9,7 @@ import VueGtm from 'vue-gtm'
 import VModal from 'vue-js-modal'
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
+import VueIntercom from 'vue-intercom'
 
 router.beforeEach((to, from, next) => {
   if (to.meta && to.meta.title) {
@@ -42,6 +43,7 @@ Vue.config.productionTip = false
 Vue.use(router)
 Vue.use(KeenUI)
 Vue.use(VModal, { componentName: 'vue-modal', })
+Vue.use(VueIntercom, { appId: 'dy34ro52', })
 
 Vue.use(VueGoogleMaps, {
   load: {

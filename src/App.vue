@@ -52,8 +52,22 @@ export default {
       this.sidemenu = false
     }
   },
+  mounted () {
+    // include intercom chat widget
+    this.$store.dispatch('getUserAttributes').then((attributes) => {
+      this.$intercom.boot({
+        name: attributes['name'],
+        email: attributes['email'],
+      })
+    }).catch(() => {
+      this.$intercom.boot({})
+    })
+  },
   watch: {
     $route (to, from) {
+      this.$store.dispatch('getUserAttributes').then((attributes) => {
+        this.$intercom.update({ email: attributes['email'], page: this.$route.path, })
+      })
       if (this.$route.path.startsWith('/dashboard')) {
         this.topHead = false
         this.mainHead = false

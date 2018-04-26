@@ -93,6 +93,13 @@ export default {
         password: this.password,
         rememberMe: this.rememberMe,
       }).then(() => {
+        // id user to intercom chat
+        this.$store.dispatch('getUserAttributes').then((attributes) => {
+          this.$intercom.boot({
+            name: attributes['name'],
+            email: attributes['email'],
+          })
+        })
         this.disableAllInputs = true
         this.password = ''
         this.errorMessage = null

@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     signOut: function () {
+      this.$intercom.shutdown()
       this.$store.dispatch('signOut')
       localStorage.clear()
     },
