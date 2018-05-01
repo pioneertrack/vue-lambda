@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import Vue from 'vue'
 import KeenUI from 'keen-ui'
 import App from './App'
