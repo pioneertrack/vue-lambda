@@ -5,6 +5,7 @@ import dashboardRoutes from './dashboard'
 import loginRoutes from './login'
 import onboardingRoutes from './onboarding'
 import propertyRoutes from './property'
+import settingRoutes from './settings'
 import notfound from './notfound'
 
 Vue.use(VueRouter)
@@ -25,6 +26,7 @@ const baseRoutes = [
 const routes = baseRoutes.concat(
   dashboardRoutes,
   loginRoutes,
+  settingRoutes,
   onboardingRoutes,
   propertyRoutes,
   notfound

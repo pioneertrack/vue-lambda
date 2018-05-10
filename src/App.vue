@@ -42,7 +42,7 @@ export default {
     },
   },
   created () {
-    if (this.$route.path.startsWith('/dashboard')) {
+    if (this.$route.path.startsWith('/dashboard') || this.$route.path.startsWith('/settings')) {
       this.topHead = false
       this.mainHead = false
       this.sidemenu = true
@@ -68,7 +68,7 @@ export default {
       this.$store.dispatch('getUserAttributes').then((attributes) => {
         this.$intercom.update({ email: attributes['email'], page: this.$route.path, })
       })
-      if (this.$route.path.startsWith('/dashboard')) {
+      if (this.$route.path.startsWith('/dashboard') || this.$route.path.startsWith('/settings')) {
         this.topHead = false
         this.mainHead = false
         this.sidemenu = true

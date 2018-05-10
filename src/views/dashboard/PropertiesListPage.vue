@@ -6,7 +6,7 @@
                   <WcCard>
                       <div slot="header" style="display: flex; justify-content: space-between;">
                           <h1 style="flex:1;">Your Properties</h1>
-                            <button class="btn" @click="openImport()">ADD NEW PROPERTIES</button>
+                            <button class="btn" @click="openImport()" v-if="$store.getters.isAdmin">ADD NEW PROPERTIES</button>
                       </div>
                   </WcCard>
                 </div>

@@ -60,6 +60,9 @@ export default new Vuex.Store({
       }
       return state.cognito.user.groups.indexOf(group) !== -1
     },
+    isAdmin: (state) => {
+      return state.team.role === 'admin'
+    },
   },
   mutations: {
     ADD_ADDRESS_MUTATION: function (state, newAddress) {

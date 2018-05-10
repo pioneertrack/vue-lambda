@@ -1,4 +1,7 @@
 import Register from '../views/onboarding/Register'
+import RegisterInvite from '../views/onboarding/RegisterInvite'
+import InviteLogin from '../views/onboarding/InviteLogin'
+import InviteAccept from '../views/onboarding/InviteAccept'
 import Import from '../views/onboarding/Import'
 import ManuallyImport from '../views/onboarding/ManuallyImport'
 import ImportWait from '../views/onboarding/ImportWait'
@@ -13,6 +16,33 @@ export default [
     name: 'register',
     component: Register,
     title: 'Register',
+    meta: {
+      isUnguarded: true,
+    },
+  },
+  {
+    path: '/onboard/invite/:token/register',
+    name: 'inviteRegister',
+    component: RegisterInvite,
+    title: 'Register Invite',
+    meta: {
+      isUnguarded: true,
+    },
+  },
+  {
+    path: '/onboard/invite/:token/accept',
+    name: 'inviteAccept',
+    component: InviteAccept,
+    title: 'Register Invite',
+    meta: {
+      isUnguarded: true,
+    },
+  },
+  {
+    path: '/onboard/invite/:token/login',
+    name: 'inviteLogin',
+    component: InviteLogin,
+    title: 'Register Invite',
     meta: {
       isUnguarded: true,
     },
