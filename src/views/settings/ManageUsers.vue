@@ -32,7 +32,7 @@
                             <div class="user-col type-col"><strong>Account Type</strong></div>
                             <div class="user-col name-col"><strong>Date Sent</strong></div>
                         </div>
-                        <div class="user-row" v-for="invite in pendingInvites">
+                        <div class="user-row" v-for="invite in pendingInvites" v-bind:key="invite.id">
                             <div class="user-col email-col">{{invite.email}}</div>
                             <div class="user-col type-col">{{invite.account_type | accountTypeFilter}}</div>
                             <div class="user-col name-col">{{invite.created_at | date}}</div>

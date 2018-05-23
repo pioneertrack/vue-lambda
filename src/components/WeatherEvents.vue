@@ -1,11 +1,11 @@
 <template>
+  <div class="row">
     <div class="weather-table">
         <h4 class="border-bottom">Weather Events</h4>
         <div class="scroll-list">
             <table class="table">
                 <thead>
                 <tr>
-                    <th></th>
                     <th>Event</th>
                     <th>Date</th>
                     <th>Type</th>
@@ -13,18 +13,17 @@
                 </thead>
                 <tbody>
                     <tr v-for="(event, index) in weatherEvents" :key='index'>
-                        <td><img class="img-responsive center-block" src=
-                                "../assets/images/hail.png"></td>
-                        <td>{{ event.desc }}</td>
+                        <td>
+                          <img class="" src=
+                              "../assets/images/hail.png"><span class="event-description">{{ event.desc }}</span></td>
                         <td>{{ event.date | formatDate }}</td>
                         <td>{{ event.type }}</td>
                     </tr>
                 </tbody>
             </table>
-            <div class="panel-footer">
-            </div>
         </div>
     </div>
+  </div>
 </template>
 
 <script>

@@ -36,12 +36,11 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 56px;
+  height: 60px;
   background-color: white;
   /*            line-height: 56px;*/
   padding: 0 20px;
   color: white;
-  border-bottom: 2px solid #d1d1d4;
   font-size: 13px;
   font-family: 'Roboto', serif;
 }

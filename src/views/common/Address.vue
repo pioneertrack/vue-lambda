@@ -2,7 +2,7 @@
     <div class="container-fluid single-address-map">
         <div class="row">
             <template v-if="markers[0].position.lat !== ''">
-                <gmap-map :center="center" :zoom="17" map-type-id="satellite" style="height: 450px" setTilt="0">
+                <gmap-map :center="center" :zoom="17" map-type-id="satellite" style="height: 350px" setTilt="0">
                     <gmap-marker v-for="m in markers"
                                  v-bind:data="m"
                                  v-bind:key="m.position.lat"
@@ -15,24 +15,24 @@
                 </gmap-map>
             </template>
             <template v-else>
-                <div style="width:500px; height:450px;"></div>
+                <div style="width: 100%; height:350px;"></div>
             </template>
         </div>
         <div class="row">
-            <section class="module-map-address" style="background-color: white; z-index: 9999;">
+            <section class="module-map-address">
                 <h3 class="text-center">
                     {{ property.address}}, {{ property.city}} {{ property.state}}
                 </h3>
             </section>
         </div>
         <div class="row">
-            <section class="module-newsletter col-xs-12 col-sm-4">
+            <section class="module-newsletter col-xs-12 col-md-3 hidden-xs hidden-sm">
                 <div v-if="signupForm.sumbit">
                     <h2 class="text-center">Thank you!</h2>
                     <p>Thank you for signing up! We'll let you know when you can monitor the weather!</p>
                 </div>
                 <div  v-else class="form-wrapper">
-                    <div class="title">This is just a taste of the new WeatherCheck</div>
+                    <div class="title">Weather Events</div>
                     <div>The new full version will be unveiled soon. Be the first to find out.</div>
                     <form class="wc-form">
                         <div :class="['wc-form__block', {'wc-form__block--err': errors['first_name']}]">
@@ -54,9 +54,37 @@
                     </form>
                 </div>
             </section>
-            <section class="col-xs-12 col-sm-8">
+            <section class="module-weather-events col-xs-12 col-md-9">
                 <weather-events :propertyId="propertyId"></weather-events>
             </section>
+          <section class="module-newsletter col-xs-12 col-md-3 hidden-md hidden-lg m-b-50">
+            <div v-if="signupForm.sumbit">
+              <h2 class="text-center">Thank you!</h2>
+              <p>Thank you for signing up! We'll let you know when you can monitor the weather!</p>
+            </div>
+            <div  v-else class="form-wrapper">
+              <div class="title">Weather Events</div>
+              <div>The new full version will be unveiled soon. Be the first to find out.</div>
+              <form class="wc-form">
+                <div :class="['wc-form__block', {'wc-form__block--err': errors['first_name']}]">
+                  <input type="text" class="wc-form__input" placeholder="First Name" id="first_name" name="first_name"
+                         v-model="signupForm.first_name" @keyup="validate">
+                  <p class="wc-form__err-msg">{{ errors['first_name'] ? errors['first_name'][0] : '' }}</p>
+                </div>
+                <div :class="['wc-form__block', {'wc-form__block--err': errors['last_name']}]">
+                  <input type="text" class="wc-form__input" placeholder="Last Name" id="last_name" name="last_name"
+                         v-model="signupForm.last_name" @keyup="validate">
+                  <p class="wc-form__err-msg">{{ errors['last_name'] ? errors['last_name'][0] : '' }}</p>
+                </div>
+                <div :class="['wc-form__block', {'wc-form__block--err': errors['email']}]">
+                  <input type="email" class="wc-form__input" placeholder="E-mail" id="email" name="email"
+                         v-model="signupForm.email" @keyup="validate">
+                  <p class="wc-form__err-msg">{{ errors['email'] ? errors['email'][0] : '' }}</p>
+                </div>
+                <input class="btn" type="submit" name="submit" value="Keep Me Posted" @click.prevent="signup" >
+              </form>
+            </div>
+          </section>
         </div>
     </div>
 </template>
