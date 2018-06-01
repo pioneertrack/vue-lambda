@@ -24,8 +24,8 @@
                     </table>
                 </div>
                 <div class="import-properties-view" v-if="noAddresses">
-                    <p>There are no properties associated with your account,<br/>please add one to get started.</p>
-                    <button class="blue-border btn-tranparent btns-blue pull-right" @click="openImport()" v-if="$store.getters.isAdmin">Add Properties</button>
+                    <p>Ethan There are no properties associated with your account,<br/>please add one to get started.</p>
+                    <button class="blue-border btn-tranparent btns-blue pull-right" @click="openImport()">Add Properties</button>
                 </div>
             </div>
             <div slot="footer" v-if="!noAddresses">
