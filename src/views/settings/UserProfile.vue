@@ -7,7 +7,7 @@
             <tr><th>Email</th><td>{{ userProfile.email }}</td><td></td></tr>
             <tr><th>Account Type</th><td>{{ userProfile.accountType }}</td><td></td></tr>
             <tr><th>Company Name</th><td>{{ userProfile.company }}</td><td></td></tr>
-            <tr><th>Phone Number</th><td>{{ userProfile.phone }}</td><td></td></tr>
+            <tr><th>Phone Number</th><td>{{ formattedPhoneNumber }}</td><td></td></tr>
             <tr><th>Password</th><td>&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&bull;&nbsp;&bull;</td><td><router-link to="/settings/profile/change-password">Change</router-link></td></tr>
         </table>
             <div style="margin:30px 0; display: flex; justify-content: center;">
@@ -38,6 +38,11 @@ export default {
         phone: '',
         password: '**********',
       },
+    }
+  },
+  computed: {
+    formattedPhoneNumber: function () {
+      return `(${this.userProfile.phone.substring(2, 5)})-${this.userProfile.phone.substring(5, 8)}-${this.userProfile.phone.substring(8, 12)}`
     }
   },
   methods: {
