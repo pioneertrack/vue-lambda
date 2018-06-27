@@ -3,8 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5 login-page col-md-offset-4 m-t-100">
-          <div class="panel panel-default">
-            <div class="panel-body">
+          <div class="card card-default">
+            <div class="card-body">
               <div class="login-heading p-t-100 p-b-100">
                 You've been successfully logged out
               </div>

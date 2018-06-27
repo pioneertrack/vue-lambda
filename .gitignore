@@ -60,3 +60,7 @@ env.yaml
 
 .idea
 /dist
+
+.env.yaml
+functions/
+yarn.lock

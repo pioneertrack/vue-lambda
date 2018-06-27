@@ -95,6 +95,7 @@ export default {
   @import "css/sweetalert.css";
   @import "css/vendor.min.css";
   @import "css/style.css";
+  @import "css/addon.css";
 
   *,
   *::before,

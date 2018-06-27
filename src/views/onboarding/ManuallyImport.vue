@@ -9,7 +9,7 @@
     </section>
     <section class="module-onboarding container">
       <div class="onboarding wrapper">
-        <div class="panel-body onboarding">
+        <div class="card-body onboarding">
           <h1 class="onboarding-title text-center">Manually enter your properties</h1>
           <div class="properties-added"  v-for='(property, index) in properties' :key='index'>
             <div>
