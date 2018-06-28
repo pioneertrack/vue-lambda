@@ -281,33 +281,38 @@ body{
     transform: rotate(180deg);
 }
 
+/* Weather compoment style */
 .weather-table {
     background: #fff;
     border-radius: 5px;
 }
-.weather-table h4{
-    padding: 15px;
-    font-size: 18px;
-    font-weight: normal;
+
+.weather-table h4 {
     color: #636b6f;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
 }
-.weather-table .border-bottom{
+
+.weather-table .border-bottom {
     border-bottom: 1px solid #d1d1d4;
 }
+
 .weather-table table {
-    margin-bottom: 30px;
     border-bottom: 1px solid #ddd;
 }
+
 .weather-table table thead th,
 .weather-table table tbody td {
-    border-bottom: 0 none;
-    border-top: 0 none;
     color: #6a6a6a;
+    padding: 10px;
 }
+
 .weather-table table td.img-thumb {
     position: relative;
     text-align: center;
 }
+
 .weather-table table td.img-thumb:before {
     background-color: #5e9dde;
     content: "";
@@ -317,23 +322,43 @@ body{
     height: 45px;
     width: 5px;
 }
+
 .weather-table h5{
-    padding: 15px;
     font-size: 16px;
     font-weight: normal;
     color: #636b6f;
+    padding: 10px;
+    text-align: center;
+    float: none;
+    display: block;
+    margin-top: 5px;
 }
+
 .weather-table h5 a{
     float: right;
     color: #3097D1;
     text-decoration: none;
 }
+
 .weather-table .text-right a{
     color: #3097D1;
     display: inline-block;
     margin-bottom: 12px;
     font-size: 15px;
 }
+
+.weather-form .form-group{
+    margin-bottom: 15px!important;
+}
+
+.weather-form .form-inline .input-group{
+    width: 100%;
+}
+
+.weather-form .form-group.col-md-2{
+    margin-top: 0;
+}
+
 .panel-footer {
     padding: 10px 15px;
     background-color: #f5f5f5;
@@ -341,12 +366,14 @@ body{
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
 }
+
 .panel-footer a,
 .panel-footer a:hover,
 .panel-footer a:focus{
     color: #3097D1;
     text-decoration: none;
 }
+
 .property_table{
     margin-top: 15px;
 }
@@ -916,34 +943,6 @@ span.profile-image {
     .container-fluid.center_section {
         padding-left: 50px;
         padding-right: 0;
-    }
-    .weather-table table thead th,
-    .weather-table table tbody td{
-        font-size: 14px;
-        padding: 10px;
-    }
-    .weather-table h4{
-        font-size: 16px;
-        padding: 10px;
-        text-align: center;
-    }
-    .weather-table h5{
-        padding: 10px;
-        text-align: center;
-    }
-    .weather-table h5 a{
-        float: none;
-        display: block;
-        margin-top: 5px;
-    }
-    .weather-form .form-group{
-        margin-bottom: 15px!important;
-    }
-    .weather-form .form-inline .input-group{
-        width: 100%;
-    }
-    .weather-form .form-group.col-md-2{
-        margin-top: 0;
     }
     .property-rating,
     .property-rating .slice .bar,

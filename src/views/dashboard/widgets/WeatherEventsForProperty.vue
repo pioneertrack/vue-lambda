@@ -1,31 +1,31 @@
 <template>
-        <WcCard>
-            <div slot="header">Weather Events</div>
-            <div slot="content" class="weather-table">
-                <div class="table-responsive">
-                    <table cellpadding="3" cellspacing="3" class="table">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>Event</th>
-                            <th>Date</th>
-                            <th>Type</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="(event, index) in weatherEvents" :key='index'>
-                            <td class="img-thumb">
-                                <img src="@/assets/images/hail.png" alt="Hail">
-                            </td>
-                            <td>{{ event.desc }}</td>
-                            <td>{{ event.date | formatDate }}</td>
-                            <td>{{ event.type }}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+    <WcCard>
+        <div slot="header">Weather Events</div>
+        <div slot="content" class="weather-table">
+            <div class="table-responsive">
+                <table cellpadding="3" cellspacing="3" class="table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(event, index) in weatherEvents" :key='index'>
+                        <td class="img-thumb">
+                            <img src="@/assets/images/hail.png" alt="Hail">
+                        </td>
+                        <td>{{ event.desc }}</td>
+                        <td>{{ event.date | formatDate }}</td>
+                        <td>{{ event.type }}</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-        </WcCard>
+        </div>
+    </WcCard>
 </template>
 
 <script>

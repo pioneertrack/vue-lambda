@@ -48,7 +48,7 @@ export default {
             duration: 1000,
             easing: 'easeInOut',
             strokeWidth: 5,
-            trailColor: '#cccccc',
+            trailColor: '#EDEDED',
         });
         this.bar.animate(this.percentStatus / 100);
     },

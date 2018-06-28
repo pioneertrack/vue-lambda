@@ -1,12 +1,12 @@
 <template>
     <div class="wc-card" v-bind:class="{'wc-card-loading':isLoading}">
-        <div class="wc-card-layover">
+        <div class="wc-card-layover" v-if="isLoading">
             <slot name="layover"></slot>
         </div>
         <div class="wc-card-inner">
-            <h4 class="border-bottom">
+            <div class="border-bottom wc-card-inner__text">
                 <slot name="header"></slot>
-            </h4>
+            </div>
             <div>
                 <slot name="content"></slot>
             </div>
@@ -34,34 +34,22 @@ export default {
     if (this.$slots.footer === undefined) {
       this.$el.querySelector('.wc-card-footer').remove()
     }
-    if (this.isLoading) {
-      this.$el.querySelector('.wc-card-layover').style.display = 'flex'
-    } else {
-      this.$el.querySelector('.wc-card-layover').style.display = 'none'
-    }
-  },
-  watch: {
-    isLoading (val) {
-      if (this.isLoading) {
-        this.$el.querySelector('.wc-card-layover').style.display = 'flex'
-      } else {
-        this.$el.querySelector('.wc-card-layover').style.display = 'none'
-      }
-    },
-  },
+  }
 }
 
 </script>
 
 <style lang="scss" scoped>
+    @import "../assets/sass/includes/variables";
     @import "../assets/sass/common";
 
     .wc-card {
         position:relative;
 
-        .wc-card-layover {
+        &-layover {
             position: absolute;
             display:flex;
+            background: rgba(0,0,0,.4);
             top:0;
             bottom:0;
             left:0;
@@ -69,22 +57,23 @@ export default {
             z-index:100;
         }
 
-        &.wc-card-loading{
-            .wc-card-inner{
+
+        &-inner {
+            @include card-mixin();
+
+            &__text {
+                font-family: $font-secondary;
+                color: #37373C;
+                font-size: 22px;
+                font-weight: 500;
+                line-height: 27px;
+                margin: 0;
+                padding: 12px 20px 11px;
             }
         }
 
-        .wc-card-inner {
-            @include card-mixin();
-
-            > h4 {
-                margin: 0;
-                padding: 13px 23px;
-            }
-            .wc-card-footer {
-                border-top: 1px solid #dee2e6;
-            }
-
+        &--footer {
+            border-top: 1px solid #dee2e6;
         }
     }
 </style>

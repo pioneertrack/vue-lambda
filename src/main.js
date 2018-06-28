@@ -11,6 +11,7 @@ import VModal from 'vue-js-modal'
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
 import VueIntercom from 'vue-intercom'
+import BootstrapVue from 'bootstrap-vue'
 
 router.beforeEach((to, from, next) => {
   if (to.meta && to.meta.title) {
@@ -41,6 +42,7 @@ Raven
   .install()
 
 Vue.config.productionTip = false
+Vue.use(BootstrapVue)
 Vue.use(router)
 Vue.use(KeenUI)
 Vue.use(VModal, { componentName: 'vue-modal', })

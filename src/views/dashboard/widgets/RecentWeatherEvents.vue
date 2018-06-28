@@ -1,10 +1,10 @@
 <template>
     <WcCard>
-        <div slot="header">Recent Weather Events</div>
+        <div slot="header">Weather Alerts + Events</div>
         <div slot="content" class="weather-table">
             <div class="table-responsive">
-                <table cellpadding="3" cellspacing="3" class="table">
-                    <thead>
+                <table>
+                    <thead class="cell-format">
                     <tr>
                         <th></th>
                         <th>Weather</th>
@@ -12,7 +12,7 @@
                         <th>Property Affected</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                     <tr v-for='(value, index) in events' :key='index'>
                         <td class="img-thumb">
                             <img src="@/assets/images/hail.png" alt="Hail">
@@ -39,6 +39,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import "../../../assets/sass/includes/variables";
+
+    .cell-format {
+        height: 43px;
+        color: #212529;
+        font-family: $font-primary;
+    }
 
 </style>

@@ -90,12 +90,13 @@ export default {
 </script>
 
 <style>
-  @import "css/app.css";
   @import "css/design-app.css";
   @import "css/sweetalert.css";
   @import "css/vendor.min.css";
   @import "css/style.css";
   @import "css/addon.css";
+  @import 'bootstrap/dist/css/bootstrap.css';
+  @import 'bootstrap-vue/dist/bootstrap-vue.css';
 
   *,
   *::before,

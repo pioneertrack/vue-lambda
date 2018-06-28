@@ -2,13 +2,16 @@
   <!-- Center Content section -->
   <div class="container-fluid m-b-45">
     <div class="container">
-    <template v-if="!importRequired">
+    <!-- <template v-if = "!importRequired"> -->
+    <template>
         <div class="row m-t-25">
             <div class="col-xl-3 col-md-3 col-sm-12">
-                <PercentWidget :percent-status="percent_status"></PercentWidget>
+                <PercentWidget :percent-status="32"></PercentWidget>
             </div>
             <div class="col-xl-9 col-md-9 col-sm-12">
-                <RecentWeatherEvents :events="weatherEvents"></RecentWeatherEvents>
+                <!-- <RecentWeatherEvents :events="weatherEvents"></RecentWeatherEvents> -->
+                <RecentWeatherEvents :events="[{ description: 'wer', date: 234, property_id: 'ewe'}, { description: 'qqq', date: 22432, property_id: 23}]"></RecentWeatherEvents>
+
             </div>
         </div>
     </template>
