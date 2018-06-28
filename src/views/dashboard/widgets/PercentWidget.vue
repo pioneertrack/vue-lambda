@@ -1,92 +1,101 @@
 <template>
-  <div class="percent-card">
-    <div class="circle"></div>
-    <!--<div class="c100 p25 big center green">-->
-      <div class="sun-icon">
-        <img src="@/assets/images/sun.svg">
-      </div>
-    <div class="percent-description">
-        <div>
-          <span class="percentage">{{percentStatus}}%</span>
-          <span class="label">of properties are unaffected by weather</span>
+    <div class="percent-widget">
+        <div class="circle"></div>
+        <div class="percent-widget__content">
+            <div class="icon">
+                <div v-if="percentStatus > 75">
+                    <img src="@/assets/images/happy-sun.svg">
+                </div>
+                <div v-else-if="percentStatus > 50">
+                    <!-- <img src="@/assets/images/soso-sun.svg"> -->
+                </div>
+                <div v-else>
+                    <!-- <img src="@/assets/images/sad-sun.svg"> -->
+                </div>
+            </div>
+            <div class="percentage">{{percentStatus}}%</div>
+            <div class="label">of your properties are in good shape</div>
         </div>
     </div>
-  </div>
 </template>
 
 <script>
-import UiProgressCircular from 'keen-ui/src/UiProgressCircular'
-import ProgressBar from 'progressbar.js'
+import UiProgressCircular from 'keen-ui/src/UiProgressCircular';
+import ProgressBar from 'progressbar.js';
 
+// TODO enable template svg when imgs available
 export default {
-  name: 'percent-widget',
-  props: [ 'percent-status', ],
-  components: {
-    UiProgressCircular,
-  },
-  mounted: function () {
-    this.bar = new ProgressBar.Circle(this.$el.querySelector('.circle'), {
-      color: '#8ec549',
-      duration: 1000,
-      easing: 'easeInOut',
-      strokeWidth: 6,
-      trailColor: '#cccccc',
-    })
-    this.bar.animate(this.percentStatus / 100)
-  },
-  watch: {
-    percentStatus: function () {
-      this.bar.animate(this.percentStatus / 100)
+    name: 'percent-widget',
+    props: ['percent-status'],
+    components: {
+        UiProgressCircular,
     },
-  },
+    mounted () {
+        let color;
+
+        if (this.percentStatus === 100) {
+            color = '#8ec549';
+        } else if (this.percentStatus > 75) {
+            color = '#D0D31B';
+        } else if (this.percentStatus > 50) {
+            color = '#F8C105';
+        } else {
+            color = '#D81414';
+        }
+
+        this.bar = new ProgressBar.Circle(this.$el.querySelector('.circle'), {
+            color,
+            duration: 1000,
+            easing: 'easeInOut',
+            strokeWidth: 5,
+            trailColor: '#cccccc',
+        });
+        this.bar.animate(this.percentStatus / 100);
+    },
+    watch: {
+        percentStatus: function () {
+            this.bar.animate(this.percentStatus / 100)
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 @import "../../../assets/sass/common";
+@import "../../../assets/sass/includes/variables";
 
-.percent-card{
-  @include card-mixin();
-  padding: 1em;
+.percent-widget {
+    @include card-mixin();
+    box-sizing: content-box;
+    height: 246px;
+    width: 246px;
+
+    &__content {
+        @include flex-col-center();
+        @include pos-absolute-full();
+        z-index: 10;
+    }
+
+    .icon {
+        width: 40px;
+        margin-bottom: 10px;
+    }
+
+    .percentage {
+        color: $black-0;
+        font-family: $font-primary;
+        font-size: 80px;
+        line-height: 80px;
+        text-align: center;
+    }
+
+    .label {
+        width: 65%;
+        color: $black-0;
+        font-family: $font-primary;
+        font-size: 18px;
+        text-align: center;
+    }
 }
 
-.percent-description {
-  position: absolute;
-  top:25%;
-  bottom:0;
-  left:0;
-  right:0;
-  font-size: 5rem;
-  margin: 0 auto;
-  z-index: 10;
-  text-align: center;
-  vertical-align: middle;
-}
-.percent-description span {
-  display: block;
-  white-space: normal;
-}
-.percent-description .percentage {
-  font-size: .75em;
-  line-height: 140px;
-  height: 80px;
-  color: #6a6a6a;
-}
-.percent-description .label {
-  color: #6a6a6a;
-  font-size: 14px;
-  font-weight: 400;
-  width: 160px;
-  margin: 5px auto 0;
-  line-height:18px;
-  padding-top: 10px;
-}
-.sun-icon{
-  position: absolute;
-  left: 50%;
-  top: 15%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 20%;
-}
 </style>
