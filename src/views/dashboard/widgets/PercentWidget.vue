@@ -7,10 +7,11 @@
                     <img src="@/assets/images/happy-sun.svg">
                 </div>
                 <div v-else-if="percentStatus > 50">
-                    <!-- <img src="@/assets/images/soso-sun.svg"> -->
+                    <img src="@/assets/images/neutral-sun.svg">
                 </div>
+
                 <div v-else>
-                    <!-- <img src="@/assets/images/sad-sun.svg"> -->
+                    <img src="@/assets/images/sad-sun.svg">
                 </div>
             </div>
             <div class="percentage">{{percentStatus}}%</div>
@@ -67,12 +68,13 @@ export default {
 .percent-widget {
     @include card-mixin();
     box-sizing: content-box;
-    height: 246px;
-    width: 246px;
 
     &__content {
         @include flex-col-center();
         @include pos-absolute-full();
+        height: 252px;
+        width: 252px;
+        left: 6px;
         z-index: 10;
     }
 

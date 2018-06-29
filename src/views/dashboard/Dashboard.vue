@@ -1,36 +1,34 @@
 <template>
   <!-- Center Content section -->
-  <div class="container-fluid m-b-45">
-    <div class="container">
-    <!-- <template v-if = "!importRequired"> -->
-    <template>
-        <div class="row m-t-25">
-            <div class="col-xl-3 col-md-3 col-sm-12">
-                <PercentWidget :percent-status="32"></PercentWidget>
-            </div>
-            <div class="col-xl-9 col-md-9 col-sm-12">
-                <!-- <RecentWeatherEvents :events="weatherEvents"></RecentWeatherEvents> -->
-                <RecentWeatherEvents :events="[{ description: 'wer', date: 234, property_id: 'ewe'}, { description: 'qqq', date: 22432, property_id: 23}]"></RecentWeatherEvents>
-
+    <div style="background-color: #F5F6FA;" class="container-fluid m-b-45">
+        <div class="container">
+            <template v-if = "!importRequired">
+                <div class="row m-t-25">
+                    <div class="col-xl-3 col-md-3 col-sm-12">
+                        <PercentWidget :percent-status="78"></PercentWidget>
+                    </div>
+                    <div class="col-xl-9 col-md-9 col-sm-12">
+                        <RecentWeatherEvents :events="weatherEvents"></RecentWeatherEvents>
+                    </div>
+                </div>
+            </template>
+            <div class="row m-t-25">
+                <div class="col-sm-8">
+                    <PropertiesList
+                        :properties="properties"
+                        :count="propertiesCount"
+                        :pages="propertyPages"
+                        :no-addresses="importRequired"
+                        @update="getProperties"
+                        @properties-added="propertiesAdded">
+                    </PropertiesList>
+                </div>
+                <div class="col-sm-4">
+                    <WeatherNews :news="weatherNews"></WeatherNews>
+                </div>
             </div>
         </div>
-    </template>
-      <div class="row m-t-25">
-          <div class="col-sm-8">
-            <PropertiesList
-                    :properties="properties"
-                    :count="propertiesCount"
-                    :pages="propertyPages"
-                    :no-addresses="importRequired"
-                    @update="getProperties"
-                    @properties-added="propertiesAdded"></PropertiesList>
-          </div>
-          <div class="col-sm-4">
-              <WeatherNews :news="weatherNews"></WeatherNews>
-          </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>

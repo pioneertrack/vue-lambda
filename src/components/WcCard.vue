@@ -57,7 +57,6 @@ export default {
             z-index:100;
         }
 
-
         &-inner {
             @include card-mixin();
 
@@ -72,8 +71,16 @@ export default {
             }
         }
 
-        &--footer {
-            border-top: 1px solid #dee2e6;
+        &-footer {
+            @include card-mixin();
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-family: $font-primary;
+            font-size: 16px;
+            height: 42px;
+            width: 100%;
         }
     }
 </style>

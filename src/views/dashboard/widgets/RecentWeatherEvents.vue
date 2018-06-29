@@ -4,7 +4,7 @@
         <div slot="content" class="weather-table">
             <div class="table-responsive">
                 <table>
-                    <thead class="cell-format">
+                    <thead>
                     <tr>
                         <th></th>
                         <th>Weather</th>
@@ -13,7 +13,7 @@
                     </tr>
                     </thead>
                     <tbody >
-                    <tr v-for='(value, index) in events' :key='index'>
+                    <tr v-for='(value, index) in reducedEvents' :key='index'>
                         <td class="img-thumb">
                             <img src="@/assets/images/hail.png" alt="Hail">
                         </td>
@@ -25,6 +25,7 @@
                 </table>
             </div>
         </div>
+        <div  class="link-align" slot="footer"><a href = "/home">All notifications</a></div>
     </WcCard>
 </template>
 
@@ -36,16 +37,28 @@ export default {
     WcCard,
   },
   props: [ 'events', ],
+  data: function() {
+      return {
+          reducedEvents: [],
+      }
+  },
+  created: function(){
+      if (this.events.length < 3) {
+          this.reducedEvents = this.events;
+      } else {
+      this.reducedEvents = this.events.slice(0, 3);
+      }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
     @import "../../../assets/sass/includes/variables";
 
-    .cell-format {
-        height: 43px;
-        color: #212529;
-        font-family: $font-primary;
+    .link-align {
+        position: absolute;
+        right: 20px;
+
     }
 
 </style>
