@@ -43,6 +43,7 @@ export default {
       }
   },
   created: function(){
+      console.log(this.events.length)
       if (this.events.length < 3) {
           this.reducedEvents = this.events;
       } else {
@@ -58,7 +59,6 @@ export default {
     .link-align {
         position: absolute;
         right: 20px;
-
     }
 
 </style>

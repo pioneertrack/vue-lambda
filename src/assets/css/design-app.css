@@ -585,43 +585,11 @@ body {
     min-height: auto;
 }
 
-.weather-table {
-    background: #fff;
-    border-radius: 5px;
-    margin-bottom: 30px;
-}
-
 @media screen and (min-width: 992px)  {
     .module-weather-events  {
         padding-left: 35px;
         margin-bottom: 70px;
     }
-}
-
-
-.weather-table h4 {
-    padding: 15px;
-}
-
-.weather-table table th,
-.weather-table table td {
-    border: 0;
-    vertical-align: middle;
-    text-align: left;
-}
-
-.weather-table table td {
-    border-bottom: 2px solid #fff;
-    font-size: 15px;
-}
-
-.weather-table table td img {
-    width: 22px;
-    vertical-align: top;
-}
-
-.weather-table .event-description {
-    margin-left: 10px;
 }
 
 .scroll-list table thead th,
@@ -634,28 +602,6 @@ body {
     margin-bottom: 30px;
     border-bottom: 1px solid #ddd;
     min-height: 295px;
-}
-
-.weather-table table td.img-thumb {
-    position: relative;
-}
-
-.weather-table table td.img-thumb:before {
-    background-color: #5e9dde;
-    content: "";
-    left: 0;
-    position: absolute;
-    top: 0;
-    height: 45px;
-    width: 5px;
-}
-
-.weather-table table th {
-    font-size: 16px;
-}
-
-.weather-table table td {
-    font-size: 15px;
 }
 
 .property-import {

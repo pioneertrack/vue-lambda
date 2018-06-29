@@ -294,22 +294,50 @@ body{
     text-align: center;
 }
 
-.weather-table .border-bottom {
-    border-bottom: 1px solid #d1d1d4;
+.weather-table h5 {
+    font-size: 16px;
+    font-weight: normal;
+    color: #636b6f;
+    padding: 10px;
+    text-align: center;
+    float: none;
+    display: block;
+    margin-top: 5px;
+}
+
+.weather-table h5 a {
+    float: right;
+    color: #3097D1;
+    text-decoration: none;
 }
 
 .weather-table table {
     border-bottom: 1px solid #ddd;
+    width: 100%
 }
 
 .weather-table table thead th,
 .weather-table table tbody td {
     color: #6a6a6a;
-    padding: 10px;
+    height: 43px;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.weather-table table tbody td {
+    padding: 8px 0 8px 11px;
+}
+
+.weather-table table thead th {
+    font-size: 14px;
+    padding: 11px;
 }
 
 .weather-table table td.img-thumb {
-    position: relative;
+    padding: 6px 0 0 23px;
+    width: 32px;
     text-align: center;
 }
 
@@ -323,28 +351,19 @@ body{
     width: 5px;
 }
 
-.weather-table h5{
-    font-size: 16px;
-    font-weight: normal;
-    color: #636b6f;
-    padding: 10px;
-    text-align: center;
-    float: none;
-    display: block;
-    margin-top: 5px;
-}
-
-.weather-table h5 a{
-    float: right;
-    color: #3097D1;
-    text-decoration: none;
-}
-
 .weather-table .text-right a{
     color: #3097D1;
     display: inline-block;
     margin-bottom: 12px;
     font-size: 15px;
+}
+
+.weather-table .event-description {
+    margin-left: 10px;
+}
+
+.weather-table .border-bottom {
+    border-bottom: 1px solid #d1d1d4;
 }
 
 .weather-form .form-group{

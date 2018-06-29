@@ -72,9 +72,9 @@ export default {
     &__content {
         @include flex-col-center();
         @include pos-absolute-full();
+        margin: -10px;
         height: 252px;
-        width: 252px;
-        left: 6px;
+        left: 12px;
         z-index: 10;
     }
 
