@@ -61,20 +61,20 @@ export default {
         border-bottom: none;
     }
 
+    .news-image{
+      padding:0 20px;
+      flex: 1;
+      width: 40px;
+
+      .news-image-container{
+        overflow:hidden;
+        height:100%;
+      }
+    }
+
     .news-description{
         text-align:left;
         margin: 4px 0;
-    }
-
-    .news-image{
-        padding:0 20px;
-        flex: 1;
-        width: 40px;
-
-        .news-image-container{
-            overflow:hidden;
-            width:100%;
-        }
     }
 
     .news-info{

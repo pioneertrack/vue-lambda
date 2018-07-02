@@ -15,7 +15,9 @@
           <tbody >
           <tr v-for='(value, index) in reducedEvents' :key='index'>
             <td class="img-thumb">
-              <img src="@/assets/images/hail.png" alt="Hail">
+              <img v-if='value.description<1' src="@/assets/images/hail-ok.svg" alt="Hail">
+              <img v-else-if='value.description<2' src="@/assets/images/hail-yellow.svg" alt="Hail">
+              <img v-else src="@/assets/images/hail-red.svg" alt="Hail">
             </td>
             <td>{{ value.description }}</td>
             <td>{{ value.date }}</td>
@@ -58,6 +60,7 @@ export default {
 
   .link-align {
     position: absolute;
+    margin-top: -10px;
     right: 20px;
     color: #1A77B9;
   }

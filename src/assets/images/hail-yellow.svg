@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="41px" viewBox="0 0 42 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-36.8%" y="-26.3%" width="173.7%" height="173.7%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.188536352   0 0 0 0 0.188536352   0 0 0 0 0.188536352  0 0 0 0.200888813 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <circle id="path-2" cx="9.5" cy="9.5" r="9.5"></circle>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Scheduled-Maintenance-/-None-Copy" transform="translate(-23.000000, -219.000000)">
+            <g id="Group-3" transform="translate(23.000000, 221.000000)">
+                <g id="Weather-/-Hail" transform="translate(0.399707, 5.000000)">
+                    <g id="Hail">
+                        <rect id="Rectangle-2" fill="#000000" transform="translate(12.121320, 30.121320) rotate(45.000000) translate(-12.121320, -30.121320) " x="10.6213203" y="28.6213203" width="3" height="3" rx="0.75"></rect>
+                        <rect id="Rectangle-2" fill="#000000" transform="translate(16.121320, 23.121320) rotate(45.000000) translate(-16.121320, -23.121320) " x="14.6213203" y="21.6213203" width="3" height="3" rx="0.75"></rect>
+                        <rect id="Rectangle-2" fill="#000000" transform="translate(8.121320, 23.121320) rotate(45.000000) translate(-8.121320, -23.121320) " x="6.62132034" y="21.6213203" width="3" height="3" rx="0.75"></rect>
+                        <rect id="Rectangle-2" fill="#000000" transform="translate(25.121320, 28.121320) rotate(45.000000) translate(-25.121320, -28.121320) " x="23.6213203" y="26.6213203" width="3" height="3" rx="0.75"></rect>
+                        <rect id="Rectangle-2" fill="#000000" transform="translate(20.121320, 32.121320) rotate(45.000000) translate(-20.121320, -32.121320) " x="18.6213203" y="30.6213203" width="3" height="3" rx="0.75"></rect>
+                        <path d="M20,23.5 C19.447,23.5 19,23.943 19,24.51 L19,26.49 C19,27.048 19.443,27.5 20,27.5 C20.553,27.5 21,27.057 21,26.49 L21,24.51 C21,23.952 20.557,23.5 20,23.5 Z" id="Shape" fill="#030104" fill-rule="nonzero"></path>
+                        <path d="M20,25.5 C19.447,25.5 19,25.943 19,26.51 L19,28.49 C19,29.048 19.443,29.5 20,29.5 C20.553,29.5 21,29.057 21,28.49 L21,26.51 C21,25.952 20.557,25.5 20,25.5 Z" id="Shape" fill="#030104" fill-rule="nonzero"></path>
+                        <path d="M12,23.5 C11.447,23.5 11,23.943 11,24.51 L11,26.49 C11,27.048 11.444,27.5 12,27.5 C12.553,27.5 13,27.057 13,26.49 L13,24.51 C13,23.952 12.556,23.5 12,23.5 Z" id="Shape" fill="#030104" fill-rule="nonzero"></path>
+                        <path d="M25,21.5 C24.447,21.5 24,21.943 24,22.51 L24,24.49 C24,25.048 24.443,25.5 25,25.5 C25.553,25.5 26,25.057 26,24.49 L26,22.51 C26,21.952 25.557,21.5 25,21.5 Z" id="Shape" fill="#030104" fill-rule="nonzero"></path>
+                        <path d="M27.586,8.712 C26.66,6.251 24.284,4.5 21.5,4.5 C20.859,4.5 20.24,4.593 19.654,4.766 C18.068,2.205 15.233,0.5 12,0.5 C7.096,0.5 3.106,4.424 3.002,9.303 C1.207,10.342 0,12.283 0,14.5 C0,17.812 2.687,20.5 6,20.5 L26,20.5 C29.312,20.5 32,17.807 32,14.5 C32,11.735 30.13,9.407 27.586,8.712 Z M26.003,18.5 L5.997,18.5 C3.794,18.5 2,16.709 2,14.5 C2,12.608 3.317,11.018 5.087,10.604 C5.029,10.245 5,9.876 5,9.5 C5,5.634 8.134,2.5 12,2.5 C15.162,2.5 17.834,4.597 18.702,7.475 C19.471,6.864 20.441,6.5 21.5,6.5 C23.816,6.5 25.725,8.25 25.973,10.5 L26.003,10.5 C28.206,10.5 30,12.291 30,14.5 C30,16.705 28.211,18.5 26.003,18.5 Z" id="Shape" fill="#030104" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+                <g id="Bitmap" filter="url(#filter-1)" transform="translate(18.719619, 0.000000)">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Mask" fill="#F8C105" xlink:href="#path-2"></use>
+                    <path d="M8,3 L11.2545969,3 L11.2545969,5.28005658 L10.7029703,11.8995757 L8.53323904,11.8995757 L8,5.28005658 L8,3 Z M8,14.3818953 C8,13.9283334 8.15629264,13.5452632 8.4688826,13.2326733 C8.78147257,12.9200833 9.16454276,12.7637907 9.61810467,12.7637907 C10.0716666,12.7637907 10.4547368,12.9200833 10.7673267,13.2326733 C11.0799167,13.5452632 11.2362093,13.9283334 11.2362093,14.3818953 C11.2362093,14.8354572 11.0799167,15.2185274 10.7673267,15.5311174 C10.4547368,15.8437074 10.0716666,16 9.61810467,16 C9.16454276,16 8.78147257,15.8437074 8.4688826,15.5311174 C8.15629264,15.2185274 8,14.8354572 8,14.3818953 Z" id="!" fill="#FFFFFF" mask="url(#mask-3)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

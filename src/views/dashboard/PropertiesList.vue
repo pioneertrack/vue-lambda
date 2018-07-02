@@ -21,27 +21,25 @@
               <td>{{property.city}}</td>
               <td>{{property.state}}</td>
               <td>{{property.zip}}</td>
-              <td class = "report-column"><a class="link-align__small" href="/properti">View Reports</a></td>
+              <td class = "report-column"><a class="link-align__small" href="/properti">View Report</a></td>
             </tr>
           </tbody>
         </table>
         <div class="import-properties-view" v-if="noAddresses">
           <p>Ethan There are no properties associated with your account,<br/>please add one to get started.</p>
-          <button class="blue-border btn-tranparent btns-blue pull-right" @click="openImport()">Add Properties</button>
+          <button class="blue-border btn-tranparent btns-blue pull-right" @click="openImport()">Add properties</button>
         </div>
       </div>
-      <div slot="footer" v-if="!noAddresses">
-        <paginate
-          :page-count="pages"
-          :page-range="2"
-          :click-handler="changePage"
-          :prev-text="'Prev'"
-          :next-text="'Next'"
-          :container-class="'pagination'"
-          :page-class="'page-item'"
-          class="m-l-20"
-          >
-        </paginate>
+      <div slot="footer" class='footer-container' v-if="!noAddresses">
+        <bPagination class='pagination-position'
+          :number-of-pages="3"
+          first-text="First"
+          prev-text="Previous"
+          next-text="Next"
+          last-text="Last"
+          v-model = "currentPage"/>
+         <a class="link-align__big link-position" href="/properti">All properties</a>
+
       </div>
     </WcCard>
       <import-modal @on-done="importDone" :modal-name="'empty-properties-add-modal'"></import-modal>
@@ -51,8 +49,7 @@
 <script>
 import WcCard from '../../components/WcCard'
 import ImportModal from '../dashboard/widgets/ImportModal'
-
-import Paginate from 'vuejs-paginate'
+import bPagination from 'bootstrap-vue/es/components/pagination-nav/pagination-nav'
 
 export default {
   name: 'properties-list',
@@ -67,8 +64,11 @@ export default {
   },
   components: {
     WcCard,
-    Paginate,
     ImportModal,
+    bPagination
+  },
+  mounted: function(){
+    console.log(this.properties)
   },
   methods: {
     changePage: function (page) {
@@ -88,8 +88,10 @@ export default {
 @import "../../assets/sass/includes/variables";
 
 .link-align {
-  color: #1A77B9;
-  font-family: $font-primary;
+  &__big, &__small {
+    color: #1A77B9;
+    font-family: $font-primary;
+  }
 
   &__big {
     font-size: 16px;
@@ -99,7 +101,6 @@ export default {
   &__small {
     font-size: 14px;
   }
-
 }
 
 .properties-table {
@@ -114,6 +115,7 @@ export default {
 
   .address-column{
     width: 40%;
+    padding-left: 40px;
   }
 
   .city-column{
@@ -132,8 +134,8 @@ export default {
     width: 20%;
   }
 }
+
 .first-column {
-  padding-left: 30px;
 }
 
 .import-properties-view{
@@ -152,7 +154,25 @@ export default {
   }
 }
 
-.view-as-map{
-  float:right;
+.footer-container {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+}
+
+.pagination-position {
+  margin-left: 10px;
+  margin-top: 15px;
+
+  ul li .page-link {
+    color: #1A77B9;
+  }
+}
+
+.link-position {
+  margin-right: 10px;
 }
 </style>
