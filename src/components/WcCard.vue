@@ -30,13 +30,12 @@ export default {
       type: Boolean,
     },
   },
-  mounted () {
+  mounted() {
     if (this.$slots.footer === undefined) {
       this.$el.querySelector('.wc-card-footer').remove()
     }
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -44,8 +43,6 @@ export default {
 @import "../assets/sass/common";
 
 .wc-card {
-  position:relative;
-
   &-layover {
     position: absolute;
     display:flex;
@@ -64,7 +61,6 @@ export default {
       font-family: $font-secondary;
       color: #37373C;
       font-size: 22px;
-      font-weight: 500;
       line-height: 27px;
       margin: 0;
       padding: 12px 20px 11px;
@@ -83,4 +79,11 @@ export default {
     width: 100%;
   }
 }
+
+.read-link {
+  color: #1A77B9;
+  font-family: $font-primary;
+  font-size: 14px;
+}
+
 </style>

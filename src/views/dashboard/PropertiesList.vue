@@ -32,14 +32,13 @@
       </div>
       <div slot="footer" class='footer-container' v-if="!noAddresses">
         <bPagination class='pagination-position'
-          :number-of-pages="3"
+          :number-of-pages="pages"
           first-text="First"
           prev-text="Previous"
           next-text="Next"
           last-text="Last"
           v-model = "currentPage"/>
          <a class="link-align__big link-position" href="/properti">All properties</a>
-
       </div>
     </WcCard>
       <import-modal @on-done="importDone" :modal-name="'empty-properties-add-modal'"></import-modal>
@@ -58,7 +57,7 @@ export default {
     'pages': Number,
     'count': Number,
     'noAddresses': {
-      default: false,
+      default: true,
       type: Boolean,
     },
   },
@@ -67,8 +66,8 @@ export default {
     ImportModal,
     bPagination
   },
-  mounted: function(){
-    console.log(this.properties)
+  mounted: function() {
+    console.log(this.noAddresses)
   },
   methods: {
     changePage: function (page) {
@@ -113,24 +112,24 @@ export default {
     white-space: nowrap;
   }
 
-  .address-column{
+  .address-column {
     width: 40%;
     padding-left: 40px;
   }
 
-  .city-column{
-    width: 20%;
+  .city-column {
+    width: 16%;
   }
 
-  .state-column{
-    width: 10%;
+  .state-column {
+    width: 14%;
   }
 
-  .status-column{
-    width: 10%;
+  .status-column {
+    width: 14%;
   }
 
-  .report-column{
+  .report-column {
     width: 20%;
   }
 }
@@ -138,24 +137,22 @@ export default {
 .first-column {
 }
 
-.import-properties-view{
+.import-properties-view {
   display:flex;
   width:100%;
   flex-direction:column;
   align-items:center;
   justify-content: center;
-
   text-align:center;
   min-height:300px;
 
   h1 {
-      margin-top: 1em;
-      margin-bottom: 0.3em;
+    margin-top: 1em;
+    margin-bottom: 0.3em;
   }
 }
 
 .footer-container {
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -173,6 +170,6 @@ export default {
 }
 
 .link-position {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 </style>
