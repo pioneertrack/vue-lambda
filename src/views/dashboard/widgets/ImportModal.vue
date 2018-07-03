@@ -8,9 +8,9 @@
     <template v-if="isBulk">
       <section class="module-onboarding container">
         <div class="onboarding wrapper m-b-25">
-          <h1 class="text-center">Import your properties</h1>
+          <h1 class="text-center">Add new Properties</h1>
 
-          <div class="row text-center upload-header">
+          <div class="row upload-header">
             <h4>Upload your properties via csv.</h4>
             <a href="/static/files/template.csv" download>Download the template here.</a>
           </div>
@@ -57,6 +57,8 @@
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.css'
 import SinglePropertyImport from './SinglePropertyImport'
+const message = 'Drag files here or click to browse.\
+ 50MB max file size. All files must be .CSV'
 
 export default {
   name: 'import-modal',
@@ -75,8 +77,7 @@ export default {
         headers: { 'access-control-request-headers': '', },
         acceptedFiles: '.csv',
         autoProcessQueue: false,
-        dictDefaultMessage: 'Drag files here or click to browse. \n' +
-          '50MB max file size. All files must be .CSV',
+        dictDefaultMessage: message
       },
     }
   },
@@ -117,19 +118,46 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
+@import '../../../assets/sass/includes/variables';
+
 .dropzone {
   outline: 2px dashed lightblue; /* the dash box */
   outline-offset: -10px;
-  color: dimgray;
+  font-color: dimgray;
   padding: 10px 10px;
   min-height: 200px; /* minimum height */
   position: relative;
   cursor: pointer;
   background-repeat: no-repeat;
   background-image: url('/static/images/upload.svg');
-  background-position: center;
+  background-position: 50% 20%;
   border: 0px solid rgba(0, 0, 0, 0.3);
+
+  .dz-message {
+    text-align: center;
+    margin: 10em 0 5em;
+  }
+}
+
+.dropbox {
+  &:hover {
+    background: lightblue; /* when mouse over to the drop zone, change color */
+  }
+
+  p {
+    font-size: 1.2em;
+    text-align: center;
+    padding: 70px 0 0;
+  }
+}
+
+.text-center {
+  color: #37373C;
+  font-family: $font-primary;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
 }
 
 .input-file {
@@ -138,21 +166,6 @@ export default {
   height: 200px;
   position: absolute;
   cursor: pointer;
-}
-
-.dropzone .dz-message {
-  text-align: center;
-  margin: 10em 0 5em;
-}
-
-.dropbox:hover {
-  background: lightblue; /* when mouse over to the drop zone, change color */
-}
-
-.dropbox p {
-  font-size: 1.2em;
-  text-align: center;
-  padding: 70px 0 0;
 }
 
 .coming-soon {
@@ -164,11 +177,6 @@ export default {
   margin-bottom: 35px;
 }
 
-.upload-form {
-  position: relative;
-  margin-bottom: 60px;
-}
-
 .fs_icon {
   position: absolute;
   top: 35px;
@@ -176,32 +184,13 @@ export default {
   transform: translateX(-50%);
 }
 
-.software {
-  float: left;
-}
-
-.software:not(:last-child) {
-  margin-right: 24px;
-  margin-top: 10px;
-}
-
-.software-rentpost {
-  width: 59px;
-}
-
-.software-resman {
-  width: 56px;
-}
-
-.software-yardi {
-  width: 73px;
-}
-
-.software-rentmanager {
-  width: 108px;
+.upload-form {
+  position: relative;
+  margin-bottom: 60px;
 }
 
 .upload-header {
+  text-align: center;
   margin-bottom: 35px;
 }
 
@@ -221,8 +210,10 @@ export default {
   display: block;
   text-align: center;
   margin-bottom: 20px;
-  font-size: 20px;
   cursor:pointer;
+  color: $blue;
+  font-family: $font-primary;
+  font-size: 16px;
 }
 
 .vue-dropzone {
