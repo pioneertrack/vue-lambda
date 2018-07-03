@@ -61,9 +61,6 @@ export default {
   @import "../../../assets/sass/includes/variables";
 
   .percent-widget {
-    @include card-mixin();
-    box-sizing: content-box;
-
     &__content {
       @include flex-col-center();
       @include pos-absolute-full();

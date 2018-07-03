@@ -5,8 +5,14 @@
              :scrollable="true"
              @closed="onClose"
              @before-open="onBeforeOpen">
+             <div>
+    <button type="button" @click="close" class="cross-button close" >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
     <template v-if="isBulk">
-      <section class="module-onboarding container">
+      <section class="module-onboarding container m-t-75">
         <div class="onboarding wrapper m-b-25">
           <h1 class="text-center">Add new Properties</h1>
 
@@ -89,6 +95,9 @@ export default {
     onClose (event) {
       this.$emit('on-done')
     },
+    close() {
+      this.$modal.hide(this.modalName)
+    },
     onBeforeOpen () {
       this.error = ''
     },
@@ -121,6 +130,12 @@ export default {
 <style lang='scss' scoped>
 @import '../../../assets/sass/includes/variables';
 
+.cross-button {
+  display: block;
+  font-size: 38px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
 .dropzone {
   outline: 2px dashed lightblue; /* the dash box */
   outline-offset: -10px;
