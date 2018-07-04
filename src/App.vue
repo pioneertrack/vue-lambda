@@ -2,7 +2,8 @@
   <div>
     <HeaderTop v-show="topHead"/>
     <Header v-show="mainHead"/>
-    <Sidemenu v-show="sidemenu" v-if="showSideMenu"/>
+    <!-- <Sidemenu v-show="sidemenu" v-if="showSideMenu"/> -->
+    <Sidemenu v-show="sidemenu" />
     <div v-bind:class="{'container-sidemenu-is-open': sidemenu}" style="display:flex; flex-direction: column;">
       <AdminBar></AdminBar>
         <div>
@@ -89,14 +90,13 @@ export default {
 }
 </script>
 
-<style>
-  @import "css/design-app.css";
-  @import "css/sweetalert.css";
-  @import "css/vendor.min.css";
-  @import "css/style.css";
-  @import "css/addon.css";
-  @import 'bootstrap/dist/css/bootstrap.css';
-  @import 'bootstrap-vue/dist/bootstrap-vue.css';
+<style lang="scss">
+@import "css/design-app.css";
+@import "css/sweetalert.css";
+@import "css/vendor.min.css";
+@import "css/style.css";
+@import "bootstrap/dist/css/bootstrap.css";
+@import "bootstrap-vue/dist/bootstrap-vue.css";
 
   *,
   *::before,

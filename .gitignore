@@ -64,3 +64,4 @@ env.yaml
 .env.yaml
 functions/
 yarn.lock
+.DS_Store

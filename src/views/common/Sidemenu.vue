@@ -22,7 +22,7 @@
     </router-link>
           <!-- Right Navbar fixed -->
     <router-link to="/dashboard" class="icon" title="dashboard">
-      <svg width="28px" height="20px" viewBox="0 0 28 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <svg id="dashboard-icon" width="28px" height="20px" viewBox="0 0 28 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs></defs>
         <g id="Ready-for-Dev" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Settings---Account-Profile" transform="translate(-22.000000, -89.000000)" fill="#EDEDED" fill-rule="nonzero">
@@ -34,8 +34,9 @@
         </g>
       </svg>
     </router-link>
+
     <router-link :to="{name: 'dashboard-properties-list'}" class="icon" title="properties">
-      <svg width="18px" height="29px" viewBox="0 0 18 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <svg id="property-icon" width="18px" height="29px" viewBox="0 0 18 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <!-- Generator: sketchtool 49 (51002) - http://www.bohemiancoding.com/sketch -->
         <defs></defs>
         <g id="Ready-for-Dev" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -48,8 +49,9 @@
         </g>
       </svg>
     </router-link>
+
     <router-link  to="/dashboard/map" class="icon" title="Map">
-      <svg width="30px" height="28px" viewBox="0 0 30 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <svg id="map-icon" width="30px" height="28px" viewBox="0 0 30 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs></defs>
         <g id="Ready-for-Dev" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Settings---Account-Profile" transform="translate(-21.000000, -205.000000)" fill="#EDEDED" fill-rule="nonzero">
@@ -61,8 +63,9 @@
         </g>
       </svg>
     </router-link>
-    <router-link :to="{name: 'dashboard-event-notifications'}" class="icon" title="Notifications">
-      <svg width="26px" height="29px" viewBox="0 0 26 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <router-link id="notification-icon" :to="{name: 'dashboard-event-notifications'}" class="icon" title="Notifications">
+      <svg  width="26px" height="29px" viewBox="0 0 26 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs></defs>
         <g id="Ready-for-Dev" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Settings---Account-Profile" transform="translate(-23.000000, -266.000000)" fill="#EDEDED">
@@ -75,7 +78,7 @@
       </svg>
     </router-link>
     <router-link to="/dashboard/data-audit" class="icon" title="Reports">
-      <svg width="30px" height="26px" viewBox="0 0 30 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <svg id="audit-icon" width="30px" height="26px" viewBox="0 0 30 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs></defs>
         <g id="Ready-for-Dev" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Create-Account---Search-Audits" transform="translate(-18.000000, -271.000000)" fill="#EDEDED" fill-rule="nonzero">
@@ -91,8 +94,9 @@
         </g>
       </svg>
     </router-link>
+
     <router-link to="/settings/profile" class="icon" title="Settings">
-      <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <svg id="settings-icon" width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs></defs>
         <g id="Ready-for-Dev" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="Properties---Menu" transform="translate(-20.000000, -393.000000)" fill="#EDEDED" fill-rule="nonzero">
@@ -103,26 +107,50 @@
         </g>
       </svg>
     </router-link>
+
     <div class="dropright">
-      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img src="../../assets/images/user.png" alt="User" class="img-fluid mask">
-      </a>
-      <ul class="dropdown-menu">
-        <li>
-          <a v-if="canActivateSuperUser" href="" @click="toggleSuperUser()" class="fa fa-fw fa-btn fa-sign-out" title="Enable SuperUser">Toggle SuperUser</a>
-          <a target="_blank" href="https://weathercheck.co/terms/" class="fa fa-fw fa-btn fa-sign-out" title="Terms of Use">Terms of Use</a>
-          <router-link to="/logout" class="fa fa-fw fa-btn fa-sign-out" title="Logout">Logout</router-link>
-        </li>
-      </ul>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a v-if="canActivateSuperUser" href="" @click="toggleSuperUser()" class="fa fa-fw fa-btn fa-sign-out" title="Enable SuperUser">Toggle SuperUser</a>
+        <a target="_blank" href="https://weathercheck.co/terms/" class="fa fa-fw fa-btn fa-sign-out" title="My Profile">MY PROFILE</a>
+        <router-link to="/logout" class="fa fa-fw fa-btn fa-sign-out" title="Logout">LOGOUT</router-link>
+      </li>
+    </ul>
     </div>
+
+    <b-tooltip class="test m-t-25" target="dashboard-icon" placement="right">
+      <router-link class="test m-t-25" to="/dashboard" title="dashboard">DASHBOARD</router-link>
+    </b-tooltip>
+    <b-tooltip target="property-icon" placement="right">
+      <router-link :to="{name: 'dashboard-properties-list'}" title="properties">PROPERTIES</router-link>
+    </b-tooltip>
+    <b-tooltip target="map-icon" placement="right">
+      <router-link  to="/dashboard/map" title="Map">MAP VIEW</router-link>
+    </b-tooltip>
+    <b-tooltip target="notification-icon" placement="right">
+      <router-link :to="{name: 'dashboard-event-notifications'}" title="Notifications">NOTIFICATION</router-link>
+    </b-tooltip>
+    <b-tooltip target="audit-icon" placement="right">
+      <router-link to="/dashboard/data-audit" title="Reports">DASHBOARD AUDIT</router-link>
+    </b-tooltip>
+    <b-tooltip target="settings-icon" placement="right">
+      <router-link to="/settings/profile">SETTINGS</router-link>
+    </b-tooltip>
   </nav>
 </template>
 
 <script>
 import store from '@/store/index'
+import bTooltip from 'bootstrap-vue/es/components/tooltip/tooltip'
 
 export default {
   name: 'Sidemenu',
+  components: {
+    bTooltip
+  },
   computed: {
     canActivateSuperUser () {
       return this.$store.getters.isUserInGroup('WCAdmin')
@@ -172,7 +200,7 @@ svg {
   max-width: 36px;
 }
 
-.icon-logo{
+.icon-logo {
   display: block;
   width: 72px;
   height: 60px;
@@ -212,10 +240,14 @@ svg {
   }
 }
 
+.dropdown-menu li a {
+  display: block;
+}
+
 .nav.parent-submenu li a:hover{background-color:transparent}
 
-.my-submenu{
-  li span{
+.my-submenu {
+  li span {
     position: absolute;
     left: -9px;
     bottom: 9px;
@@ -227,14 +259,14 @@ svg {
   }
 }
 
-.dropright{
+.dropright {
     bottom: 50px;
     position: absolute;
     text-align: center;
     width: 100%;
 }
 
-.navbar-left{
+.navbar-left {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#24283e), to(#004380));
   background-image: linear-gradient(#24283e, #004380);
   height: calc(100% - 68px);
@@ -266,14 +298,14 @@ svg {
     stroke: #79bfe8;
   }
 
-  .dropright{
+  .dropright {
     bottom: 50px;
     position: absolute;
     text-align: center;
     width: 100%;
   }
 
-  .navbar-left .dropdown-toggle img{
+  .navbar-left .dropdown-toggle img {
     border: 2px solid #d3e0e9;
     border-radius: 50%;
     display: inline-block;
@@ -282,16 +314,22 @@ svg {
     width: 50px;
   }
 
-  .navbar-left .dropright .dropdown-toggle::after{
+  .navbar-left .dropright .dropdown-toggle::after {
     display: none;
   }
 }
 
 .mask {
-    border-radius: 50%;
-    box-sizing: border-box;
-    height: 43px;
-    width: 43px;
-    border: 3px solid #8EC549;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 43px;
+  width: 43px;
+  border: 3px solid #8EC549;
 }
+
+.test {
+  background-color: #fff;
+  color: #fff;
+}
+
 </style>
